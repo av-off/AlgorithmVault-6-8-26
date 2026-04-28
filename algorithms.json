@@ -9,6 +9,118 @@
     "files": {
       "python": "algorithms/Example01/code.py",
       "cpp": "algorithms/Example01/code.cpp"
+    },
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
     }
   }
 ]
