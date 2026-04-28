@@ -9,7 +9,8 @@
     "files": {
       "python": "algorithms/Example01/code.py",
       "cpp": "algorithms/Example01/code.cpp"
-    },
+    }
+  },
   {
     "id": "binary-search",
     "name": "Binary Search",
