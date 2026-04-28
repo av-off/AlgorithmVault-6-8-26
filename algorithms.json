@@ -1,17 +1,5 @@
 [
   {
-    "id": "Example",
-    "name": "Example",
-    "hint": "Efficient O(log n) searching in sorted arrays",
-    "time": "O(log n)",
-    "space": "O(1)",
-    "tags": ["search", "divide-conquer"],
-    "files": {
-      "python": "algorithms/Example01/code.py",
-      "cpp": "algorithms/Example01/code.cpp"
-    }
-  },
-  {
     "id": "binary-search",
     "name": "Binary Search",
     "hint": "Efficient O(log n) searching in sorted arrays",
