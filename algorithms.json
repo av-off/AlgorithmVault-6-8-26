@@ -1,4 +1,5 @@
 {
+{
   "name": "Binary Search",
   "description": "Searches a sorted array by dividing search space in half.",
   "time": "O(log n)",
