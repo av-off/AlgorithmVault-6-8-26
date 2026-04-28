@@ -754,16 +754,20 @@ async function showDetail(id) {
   Prism.highlightAll();
 }
 
-function copyCode() {
-  const code = window.__codeStore?.[window.__activeLang] || "";
-  navigator.clipboard.writeText(code);
-
+function showToast(text) {
   const toast = document.getElementById("toast");
+  toast.textContent = text;
   toast.style.opacity = "1";
 
   setTimeout(() => {
     toast.style.opacity = "0";
   }, 1200);
+}
+function copyCode() {
+  const code = window.__codeStore?.[window.__activeLang] || "";
+  navigator.clipboard.writeText(code);
+
+  showToast("Copied to clipboard");
 }
 function switchLang(lang) {
   window.__activeLang = lang;
