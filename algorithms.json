@@ -1,19 +1,10 @@
-[
-  {
-    "name": "Binary Search",
-    "folder": "binary-search",
-    "files": {
-      "python": "algorithms/binary-search/binary.py",
-      "cpp": "algorithms/binary-search/binary.cpp",
-      "java": "algorithms/binary-search/binary.java"
-    }
-  },
-  {
-    "name": "Merge Sort",
-    "folder": "merge-sort",
-    "files": {
-      "python": "algorithms/merge-sort/merge.py",
-      "cpp": "algorithms/merge-sort/merge.cpp"
-    }
+{
+  "name": "Binary Search",
+  "description": "Searches a sorted array by dividing search space in half.",
+  "time": "O(log n)",
+  "space": "O(1)",
+  "files": {
+    "python": "algorithms/binary-search/binary.py",
+    "cpp": "algorithms/binary-search/binary.cpp"
   }
-]
+}
