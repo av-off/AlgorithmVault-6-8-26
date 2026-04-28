@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Binary Search",
+    "folder": "binary-search",
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "name": "Merge Sort",
+    "folder": "merge-sort",
+    "files": {
+      "python": "algorithms/merge-sort/merge.py",
+      "cpp": "algorithms/merge-sort/merge.cpp"
+    }
+  }
+]
