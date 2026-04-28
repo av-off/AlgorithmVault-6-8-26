@@ -688,21 +688,43 @@ async function showDetail(id) {
         <div class="md-content">${readmeHtml}</div>
       </div>` : ''}
 
-      <!-- Code viewer -->
-      <div class="glass rounded-2xl overflow-hidden">
-        <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid var(--border)">
-          <p class="section-label">Source Code</p>
-          <div class="flex gap-1" id="lang-tabs">
-            ${langs.map(lang => `
-              <button class="lang-tab ${lang===activeLang?'active':''}" onclick="switchLang('${lang}')">${lang}</button>
-            `).join('')}
-          </div>
-        </div>
-        <div id="code-container" class="p-4">
-          <pre class="language-${langMap[activeLang]||activeLang}"><code class="language-${langMap[activeLang]||activeLang}">${escapeHtml(codeStore[activeLang]||'# No code available')}</code></pre>
-        </div>
+     <!-- Code viewer -->
+<div class="glass rounded-2xl overflow-hidden">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid var(--border)">
+
+    <p class="section-label">Source Code</p>
+
+    <div class="flex items-center gap-2">
+
+      <!-- Copy button -->
+      <button onclick="copyCode()" class="btn-ghost text-xs px-3 py-1">
+        Copy
+      </button>
+
+      <!-- Language tabs -->
+      <div class="flex gap-1" id="lang-tabs">
+        ${langs.map(lang => `
+          <button class="lang-tab ${lang===activeLang?'active':''}" onclick="switchLang('${lang}')">
+            ${lang}
+          </button>
+        `).join('')}
       </div>
 
+    </div>
+  </div>
+
+  <!-- Code -->
+  <div id="code-container" class="p-4">
+    <pre class="language-${langMap[activeLang]||activeLang}">
+      <code class="language-${langMap[activeLang]||activeLang}">
+        ${escapeHtml(codeStore[activeLang]||'# No code available')}
+      </code>
+    </pre>
+  </div>
+
+</div>
       <!-- Tags -->
       ${(algo.tags||[]).length ? `
       <div class="mt-6 flex flex-wrap gap-2">
@@ -715,6 +737,13 @@ async function showDetail(id) {
   Prism.highlightAll();
 }
 
+function copyCode() {
+  const code = window.__codeStore?.[window.__activeLang] || "";
+  navigator.clipboard.writeText(code);
+
+  // optional tiny feedback (clean UX)
+  alert("Code copied!");
+}
 function switchLang(lang) {
   window.__activeLang = lang;
   const store = window.__codeStore || {};
