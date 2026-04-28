@@ -613,9 +613,54 @@ function renderHome(list, all=false) {
     </section>
 
     <!-- Footer -->
-    <footer class="border-t py-8 text-center text-xs" style="border-color:var(--border);color:var(--txt-muted)">
-      <p>© 2026 Shakib Hossain Tahmid</p>
-    </footer>
+    <footer class="border-t mt-16" style="border-color:var(--border)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+
+      <!-- Left -->
+      <div class="text-center sm:text-left">
+        <p class="font-display text-lg font-600">
+          Sakib<span style="color:var(--accent)">.</span>
+        </p>
+        <p class="text-xs mt-1" style="color:var(--txt-muted)">
+          Thank you for visiting 
+        </p>
+      </div>
+
+      <!-- Socials -->
+      <div class="flex flex-wrap justify-center gap-3 text-sm">
+
+        <a href="https://www.facebook.com/sakibhossain.tahmid" target="_blank" class="btn-ghost flex items-center gap-2 px-3 py-2">
+          Facebook
+        </a>
+
+        <a href="https://www.instagram.com/_sakib_000001" target="_blank" class="btn-ghost flex items-center gap-2 px-3 py-2">
+          Instagram
+        </a>
+
+        <a href="https://x.com/_sakib_00000001" target="_blank" class="btn-ghost flex items-center gap-2 px-3 py-2">
+          X
+        </a>
+
+        <a href="https://github.com/sakib-12345" target="_blank" class="btn-ghost flex items-center gap-2 px-3 py-2">
+          GitHub
+        </a>
+
+        <a href="mailto:sakibhossaintahmid@gmail.com" class="btn-primary px-4 py-2 text-sm">
+          Email Me
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Bottom line -->
+    <div class="text-center mt-8 text-xs" style="color:var(--txt-muted)">
+      © ${new Date().getFullYear()} Shakib Hossain Tahmid· All rights reserved
+    </div>
+
+  </div>
+</footer>
   </div>`;
 }
 
