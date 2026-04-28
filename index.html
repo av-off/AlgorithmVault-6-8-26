@@ -20,10 +20,7 @@
  tailwind.config = {
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter'],
-        display: ['Space Grotesk']
-      },
+      fontFamily: { sans: ['Inter'], display: ['Space Grotesk'] },
       colors: { dark: '#050505' }
     }
   }
@@ -41,109 +38,166 @@ body { background:#050505 }
 <body class="text-white font-sans">
 
 <header class="fixed top-0 w-full z-50 glass">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-<h1 class="font-display font-bold text-xl">Algorithm Vault</h1>
-<input id="search" placeholder="Search algorithm..." class="bg-white/5 px-4 py-2 rounded-xl text-sm outline-none border border-white/10 w-56">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<h1 class="font-display font-bold text-lg">Algorithm Vault</h1>
+<button onclick="openSearch()" class="text-xs px-4 py-2 bg-white text-black rounded-xl">Search</button>
 </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-6 pt-28 pb-20">
+<main id="main" class="max-w-7xl mx-auto px-4 pt-24 pb-16">
 
-<section class="min-h-[70vh] flex flex-col justify-center items-center text-center mb-20">
-  <h1 class="text-5xl md:text-7xl font-display font-black tracking-tight leading-[0.9] mb-6">
-    Build. Learn. Master <br>
-    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400">
-      Algorithms.
+<!-- HERO -->
+<section id="hero" class="min-h-[60vh] flex flex-col justify-center items-center text-center mb-16">
+  <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-black leading-[0.95] mb-6">
+    Master
+    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400">
+      Algorithms
     </span>
   </h1>
-
-  <p class="text-gray-400 max-w-2xl text-lg mb-10">
-    A clean collection of data structures and algorithms in multiple languages.
+  <p class="text-gray-400 text-sm sm:text-base max-w-xl">
+    Clean implementations with explanations & complexity.
   </p>
 </section>
 
-<div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+<!-- LIST -->
+<section id="listSection">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-xl font-bold">Top Algorithms</h2>
+    <button onclick="openSearch()" class="text-xs text-gray-400 hover:text-white">View All →</button>
+  </div>
+
+  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- DETAIL PAGE -->
+<section id="detailSection" class="hidden">
+  <button onclick="goHome()" class="mb-6 text-sm text-gray-400">← Back</button>
+
+  <h1 id="detailTitle" class="text-3xl font-bold mb-4"></h1>
+
+  <p id="detailDesc" class="text-gray-400 mb-6"></p>
+
+  <div class="grid md:grid-cols-2 gap-6 mb-6">
+    <div class="glass p-4 rounded-xl">
+      <h3 class="font-bold mb-2">Time Complexity</h3>
+      <p id="timeComplexity" class="text-sm text-gray-300"></p>
+    </div>
+    <div class="glass p-4 rounded-xl">
+      <h3 class="font-bold mb-2">Space Complexity</h3>
+      <p id="spaceComplexity" class="text-sm text-gray-300"></p>
+    </div>
+  </div>
+
+  <select id="detailLang" onchange="changeDetailLang()" class="mb-4 bg-black border border-white/10 px-3 py-2 rounded">
+  </select>
+
+  <pre class="text-sm"><code id="detailCode"></code></pre>
+</section>
 
 </main>
+
+<!-- SEARCH MODAL -->
+<div id="searchModal" class="fixed inset-0 bg-black/80 hidden z-50 p-4">
+  <div class="max-w-3xl mx-auto mt-20">
+    <input id="searchInput" placeholder="Search algorithms..." class="w-full p-4 rounded-xl bg-white/10 outline-none mb-6">
+    <div id="searchResults" class="grid gap-4"></div>
+  </div>
+</div>
 
 <script>
 
 let algorithms = [];
-let current = [];
+let visible = [];
+let currentAlgo = null;
+const LIMIT = 10;
+
 const grid = document.getElementById("grid");
 
-// LOAD JSON (FIXED)
-async function loadAlgorithms() {
- try {
-   const res = await fetch("./algorithms.json");
-   if(!res.ok) throw new Error("algorithms.json not found");
-   algorithms = await res.json();
-   current = algorithms;
-   render();
- } catch(err) {
-   grid.innerHTML = `<div class="text-red-400">Failed to load algorithms.json<br>Make sure it's in root folder</div>`;
- }
+async function loadAlgorithms(){
+ const res = await fetch("./algorithms.json");
+ algorithms = await res.json();
+ visible = algorithms.slice(0, LIMIT);
+ render();
 }
 
-// SAFE FETCH
 async function loadCode(path){
- try {
-   const res = await fetch(`./${path}`);
-   if(!res.ok) throw new Error();
-   return await res.text();
- } catch(err){
-   return `// ⚠️ Failed to load\n// ${path}\n// Check path or GitHub case sensitivity`;
+ try{
+  const res = await fetch(`./${path}`);
+  if(!res.ok) throw new Error();
+  return await res.text();
+ }catch{
+  return "// failed to load";
  }
 }
 
-function cardTemplate(algo){
+function card(algo){
  const id = algo.name.replace(/\s+/g,'-');
  return `
- <div class="glass p-6 rounded-3xl fade">
-   <div class="flex justify-between mb-4">
-     <h2 class="font-bold">${algo.name}</h2>
-     <select onchange="changeLang(this,'${id}')" class="bg-black text-xs border border-white/10 rounded px-2">
-       ${Object.keys(algo.files).map(l=>`<option value="${l}">${l}</option>`).join("")}
-     </select>
-   </div>
-   <pre class="text-sm overflow-auto max-h-80"><code id="code-${id}"></code></pre>
+ <div onclick="openDetail('${id}')" class="glass p-4 rounded-2xl cursor-pointer hover:bg-white/5 transition">
+   <h3 class="text-sm font-semibold">${algo.name}</h3>
+   <p class="text-xs text-gray-500 mt-1">Click to view details</p>
  </div>`;
 }
 
 async function render(){
- grid.innerHTML="";
-
- for(let algo of current){
-   grid.innerHTML += cardTemplate(algo);
- }
-
- for(let algo of current){
-   const id = algo.name.replace(/\s+/g,'-');
-   const lang = Object.keys(algo.files)[0];
-   const code = await loadCode(algo.files[lang]);
-   const el = document.getElementById(`code-${id}`);
-   el.textContent = code;
-   el.className = `language-${lang}`;
- }
-
- Prism.highlightAll();
+ grid.innerHTML = "";
+ visible.forEach(a=> grid.innerHTML += card(a));
 }
 
-async function changeLang(select,id){
+// DETAIL PAGE
+async function openDetail(id){
  const algo = algorithms.find(a=>a.name.replace(/\s+/g,'-')===id);
- const code = await loadCode(algo.files[select.value]);
- const el = document.getElementById(`code-${id}`);
+ currentAlgo = algo;
+
+ document.getElementById("hero").classList.add("hidden");
+ document.getElementById("listSection").classList.add("hidden");
+ document.getElementById("detailSection").classList.remove("hidden");
+
+ document.getElementById("detailTitle").textContent = algo.name;
+ document.getElementById("detailDesc").textContent = algo.description || "No description provided.";
+ document.getElementById("timeComplexity").textContent = algo.time || "-";
+ document.getElementById("spaceComplexity").textContent = algo.space || "-";
+
+ const select = document.getElementById("detailLang");
+ select.innerHTML = Object.keys(algo.files).map(l=>`<option value="${l}">${l}</option>`).join("");
+
+ loadDetailCode(Object.keys(algo.files)[0]);
+}
+
+async function loadDetailCode(lang){
+ const code = await loadCode(currentAlgo.files[lang]);
+ const el = document.getElementById("detailCode");
  el.textContent = code;
- el.className = `language-${select.value}`;
+ el.className = `language-${lang}`;
  Prism.highlightElement(el);
 }
 
-// SEARCH FIX
+function changeDetailLang(){
+ const lang = document.getElementById("detailLang").value;
+ loadDetailCode(lang);
+}
 
-document.getElementById("search").addEventListener("input",e=>{
+function goHome(){
+ document.getElementById("hero").classList.remove("hidden");
+ document.getElementById("listSection").classList.remove("hidden");
+ document.getElementById("detailSection").classList.add("hidden");
+}
+
+// SEARCH
+function openSearch(){
+ document.getElementById("searchModal").classList.remove("hidden");
+ document.getElementById("searchInput").focus();
+}
+
+searchModal.addEventListener("click", e=>{
+ if(e.target.id === "searchModal") searchModal.classList.add("hidden");
+});
+
+document.getElementById("searchInput").addEventListener("input", e=>{
  const val = e.target.value.toLowerCase();
- current = algorithms.filter(a=>a.name.toLowerCase().includes(val));
- render();
+ const results = algorithms.filter(a=>a.name.toLowerCase().includes(val));
+ const container = document.getElementById("searchResults");
+ container.innerHTML = results.map(a=>`<div onclick="openDetail('${a.name.replace(/\s+/g,'-')}')" class="p-3 glass rounded-xl cursor-pointer">${a.name}</div>`).join("");
 });
 
 loadAlgorithms();
