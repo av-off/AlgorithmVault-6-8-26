@@ -154,12 +154,30 @@ async function openDetail(id){
  document.getElementById("detailSection").classList.remove("hidden");
 
  document.getElementById("detailTitle").textContent = algo.name;
- document.getElementById("detailDesc").textContent = algo.description || "No description provided.";
+
+ // derive folder from first file path
+ const firstFile = Object.values(algo.files)[0];
+ const folder = firstFile.split("/")[1];
+ const readmePath = `algorithms/${folder}/README.md`;
+
+ // load README.md
+ let readme = "";
+ try {
+   const res = await fetch(`./${readmePath}`);
+   if(res.ok) readme = await res.text();
+ } catch(e) {}
+
+ // show README as description
+ document.getElementById("detailDesc").textContent =
+   readme || "No README found.";
+
  document.getElementById("timeComplexity").textContent = algo.time || "-";
  document.getElementById("spaceComplexity").textContent = algo.space || "-";
 
  const select = document.getElementById("detailLang");
- select.innerHTML = Object.keys(algo.files).map(l=>`<option value="${l}">${l}</option>`).join("");
+ select.innerHTML = Object.keys(algo.files)
+   .map(l=>`<option value="${l}">${l}</option>`)
+   .join("");
 
  loadDetailCode(Object.keys(algo.files)[0]);
 }
