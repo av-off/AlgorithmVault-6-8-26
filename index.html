@@ -654,7 +654,17 @@ function renderHome(list, all=false) {
           Beautifully documented algorithms with syntax-highlighted code in multiple languages. From sorting to graphs, all in one place.
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
-        <a href="/Specials/"
+        
+          <button onclick="openSearch()" class="btn-primary flex items-center gap-2">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Search Algorithms
+          </button>
+          <button onclick="showAll()" class="btn-ghost flex items-center gap-2">
+            Browse All
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        
+        <a href="/AlgorithmVault/Specials/"
    style="
      display:inline-flex;
      align-items:center;
@@ -673,15 +683,8 @@ function renderHome(list, all=false) {
    onmouseout="this.style.boxShadow='none'">
   ⚡ HSC Special
 </a>
-          <button onclick="openSearch()" class="btn-primary flex items-center gap-2">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            Search Algorithms
-          </button>
-          <button onclick="showAll()" class="btn-ghost flex items-center gap-2">
-            Browse All
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
+         </div>
+       
         <!-- Stats -->
         <div class="flex flex-wrap gap-6 justify-center mt-10">
           ${[['⚡','Fast','O(log n) to O(n²)'],['🧠','Explained','With README docs'],['🔤','Multi-lang','Python, C++, Java, C']].map(([icon,label,sub])=>`
