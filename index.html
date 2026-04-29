@@ -332,37 +332,55 @@
   <!-- ── SEARCH MODAL ── -->
   <div id="search-overlay" onclick="closeSearchOutside(event)">
     <div id="search-modal">
-      <div class="flex items-center gap-3 px-1" style="border-bottom:1px solid var(--border)">
-        <svg class="ml-4 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7ea0" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input id="search-input" type="text" placeholder="Search algorithms…" autocomplete="off" />
-        <button onclick="closeSearch()" class="mr-4 shrink-0 text-xs" style="color:var(--txt-muted)"><kbd>ESC</kbd></button>
-      </div>
-      <div id="search-results" class="max-h-80 overflow-y-auto">
-        <p class="text-center py-8 text-sm" style="color:var(--txt-muted)">Type to search algorithms</p>
-      </div>
-      <div class="flex flex-wrap gap-2 px-4 pb-3">
 
-  <!-- Language Filter -->
-  <select id="filter-lang" class="btn-ghost text-xs">
-    <option value="">All Languages</option>
-    <option value="python">Python</option>
-    <option value="cpp">C++</option>
-    <option value="java">Java</option>
-    <option value="c">C</option>
-  </select>
+  <!-- TOP (input + filters together) -->
+  <div class="px-4 py-3" style="border-bottom:1px solid var(--border)">
 
-  <!-- Tag Filter -->
-  <select id="filter-tag" class="btn-ghost text-xs">
-    <option value="">All Topics</option>
-    <option value="sort">Sorting</option>
-    <option value="search">Searching</option>
-    <option value="graph">Graph</option>
-    <option value="dp">Dynamic Programming</option>
-    <option value="string">String</option>
-  </select>
+    <!-- Input -->
+    <div class="flex items-center gap-3 mb-3">
+      <svg width="16" height="16" ...></svg>
+
+      <input id="search-input"
+             type="text"
+             placeholder="Search algorithms…"
+             autocomplete="off"
+             class="flex-1 bg-transparent outline-none text-sm" />
+
+      <button onclick="closeSearch()" class="text-xs">
+        <kbd>ESC</kbd>
+      </button>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex gap-2 flex-wrap">
+      <select id="filter-lang" class="btn-ghost text-xs flex-1 min-w-[120px]">
+        <option value="">All Languages</option>
+        <option value="python">Python</option>
+        <option value="cpp">C++</option>
+        <option value="java">Java</option>
+        <option value="c">C</option>
+      </select>
+
+      <select id="filter-tag" class="btn-ghost text-xs flex-1 min-w-[120px]">
+        <option value="">All Topics</option>
+        <option value="sort">Sorting</option>
+        <option value="search">Searching</option>
+        <option value="graph">Graph</option>
+        <option value="dp">Dynamic Programming</option>
+        <option value="string">String</option>
+      </select>
+    </div>
+
+  </div>
+
+  <!-- RESULTS -->
+  <div id="search-results" class="max-h-[400px] overflow-y-auto">
+    <p class="text-center py-8 text-sm" style="color:var(--txt-muted)">
+      Type to search algorithms
+    </p>
+  </div>
 
 </div>
-    </div>
     
   </div>
 
