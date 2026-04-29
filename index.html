@@ -801,7 +801,7 @@ async function showDetail(id) {
       try {
         const res = await fetch(algo.files[lang]);
         if (res.ok) codeStore[lang] = await res.text();
-        else codeStore[lang] = `# File not found: ${algo.files[lang]}`;
+        else codeStore[lang] = `Coming soon`;
       } catch(_) {
         codeStore[lang] = `# Could not load file`;
       }
