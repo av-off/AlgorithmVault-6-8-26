@@ -111,5 +111,335 @@
     "files": {
       "python": "algorithms/dijkstra/dijkstra.py"
     }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
   }
 ]
