@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSC Special | Algorithms</title>
+
+<style>
+:root{
+  --bg:#070b10;
+  --card:#0e1420;
+  --accent:#00e5c3;
+  --text:#e2e8f0;
+  --muted:#8aa0b6;
+}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* neon background grid */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,229,195,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,195,0.05) 1px, transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;
+}
+
+header{
+  text-align:center;
+  padding:40px 20px;
+}
+
+h1{
+  font-size:40px;
+}
+
+.accent{ color:var(--accent); }
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  gap:16px;
+}
+
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,229,195,0.4);
+  box-shadow:0 0 20px rgba(0,229,195,0.1);
+}
+
+.title{
+  font-size:18px;
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+.desc{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+pre{
+  background:#05080d;
+  padding:12px;
+  border-radius:10px;
+  overflow:auto;
+  font-size:12px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.badge{
+  display:inline-block;
+  font-size:10px;
+  padding:3px 8px;
+  border:1px solid rgba(0,229,195,0.3);
+  border-radius:999px;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>HSC <span class="accent">Special</span></h1>
+  <p style="color:#8aa0b6">Important algorithms for exams (Bangla explanation + C code)</p>
+</header>
+
+<div class="container">
+
+<!-- GCD -->
+<div class="card">
+  <div class="badge">VERY IMPORTANT</div>
+  <div class="title">GCD (Euclid Algorithm)</div>
+  <div class="desc">
+    দুইটি সংখ্যার মধ্যে সবচেয়ে বড় যে সংখ্যা দিয়ে উভয়কে ভাগ করা যায় সেটাই GCD।  
+    Euclid Algorithm ব্যবহার করলে দ্রুত GCD বের করা যায়।
+  </div>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int gcd(int a, int b){
+    if(b == 0) return a;
+    return gcd(b, a % b);
+}
+
+int main(){
+    printf("%d", gcd(24, 36));
+}
+</pre>
+</div>
+
+<!-- LCM -->
+<div class="card">
+  <div class="badge">IMPORTANT</div>
+  <div class="title">LCM (Least Common Multiple)</div>
+  <div class="desc">
+    দুইটি সংখ্যার সবচেয়ে ছোট সাধারণ গুণিতককে LCM বলে।  
+    সূত্র: LCM = (a × b) / GCD
+  </div>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int gcd(int a, int b){
+    if(b == 0) return a;
+    return gcd(b, a % b);
+}
+
+int lcm(int a, int b){
+    return (a / gcd(a,b)) * b;
+}
+
+int main(){
+    printf("%d", lcm(12, 18));
+}
+</pre>
+</div>
+
+<!-- SUM OF DHARA -->
+<div class="card">
+  <div class="badge">EXAM FAVORITE</div>
+  <div class="title">Sum of Dhara (Arithmetic Series)</div>
+  <div class="desc">
+    ধারা মানে একটি নির্দিষ্ট প্যাটার্নে সংখ্যা যোগ করা।  
+    Arithmetic series এর সূত্র:  
+    S = n/2 × (2a + (n-1)d)
+  </div>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main(){
+    int a = 1, d = 2, n = 5;
+    int sum = (n * (2*a + (n-1)*d)) / 2;
+    printf("%d", sum);
+}
+</pre>
+</div>
+
+<!-- FACTORIAL -->
+<div class="card">
+  <div class="badge">COMMON</div>
+  <div class="title">Factorial (n!)</div>
+  <div class="desc">
+    কোনো সংখ্যার factorial মানে ১ থেকে সেই সংখ্যার পর্যন্ত সব গুণফল।  
+    যেমন: 5! = 5×4×3×2×1
+  </div>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main(){
+    int n = 5, fact = 1;
+
+    for(int i = 1; i <= n; i++){
+        fact *= i;
+    }
+
+    printf("%d", fact);
+}
+</pre>
+</div>
+
+</div>
+
+</body>
+</html>
