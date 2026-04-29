@@ -341,6 +341,28 @@
         <p class="text-center py-8 text-sm" style="color:var(--txt-muted)">Type to search algorithms</p>
       </div>
     </div>
+    <div class="flex flex-wrap gap-2 px-4 pb-3">
+
+  <!-- Language Filter -->
+  <select id="filter-lang" class="btn-ghost text-xs">
+    <option value="">All Languages</option>
+    <option value="python">Python</option>
+    <option value="cpp">C++</option>
+    <option value="java">Java</option>
+    <option value="c">C</option>
+  </select>
+
+  <!-- Tag Filter -->
+  <select id="filter-tag" class="btn-ghost text-xs">
+    <option value="">All Topics</option>
+    <option value="sort">Sorting</option>
+    <option value="search">Searching</option>
+    <option value="graph">Graph</option>
+    <option value="dp">Dynamic Programming</option>
+    <option value="string">String</option>
+  </select>
+
+</div>
   </div>
 
   <!-- ── MAIN CONTENT ── -->
@@ -484,6 +506,13 @@ document.addEventListener('keydown', e => {
 function setupSearch() {
   const inp = document.getElementById('search-input');
   inp.addEventListener('input', () => renderSearchResults(inp.value.trim()));
+  document.getElementById('filter-lang').addEventListener('change', () => {
+  renderSearchResults(document.getElementById('search-input').value.trim());
+});
+
+document.getElementById('filter-tag').addEventListener('change', () => {
+  renderSearchResults(document.getElementById('search-input').value.trim());
+});
 }
 
 function openSearch() {
@@ -503,14 +532,51 @@ function closeSearchOutside(e) {
 
 function renderSearchResults(query) {
   const box = document.getElementById('search-results');
-  const filtered = query
-    ? algorithms.filter(a => a.name.toLowerCase().includes(query.toLowerCase()) || (a.tags||[]).some(t=>t.includes(query.toLowerCase())))
-    : algorithms.slice(0, 12);
+
+  const lang = document.getElementById('filter-lang')?.value;
+  const tag  = document.getElementById('filter-tag')?.value;
+
+  const filtered = algorithms.filter(a => {
+    const matchQuery =
+      !query ||
+      a.name.toLowerCase().includes(query.toLowerCase()) ||
+      (a.tags || []).some(t => t.toLowerCase().includes(query.toLowerCase()));
+
+    const matchLang =
+      !lang ||
+      Object.keys(a.files || a.code || {}).includes(lang);
+
+    const matchTag =
+      !tag ||
+      (a.tags || []).includes(tag);
+
+    return matchQuery && matchLang && matchTag;
+  });
 
   if (!filtered.length) {
-    box.innerHTML = `<p class="text-center py-8 text-sm" style="color:var(--txt-muted)">No algorithms found for "${query}"</p>`;
+    box.innerHTML = `<p class="text-center py-8 text-sm" style="color:var(--txt-muted)">No results found</p>`;
     return;
   }
+
+  box.innerHTML = filtered.map(a => `
+    <div class="search-result-item" onclick="showDetail('${a.id}'); closeSearch()">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+           style="background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.15)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </div>
+
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium">${a.name}</p>
+        <p class="text-xs" style="color:var(--txt-muted)">${a.hint}</p>
+      </div>
+
+      <span class="font-mono text-xs">${a.time}</span>
+    </div>
+  `).join('');
+}
 
   box.innerHTML = filtered.map(a => `
     <div class="search-result-item" onclick="showDetail('${a.id}'); closeSearch()">
