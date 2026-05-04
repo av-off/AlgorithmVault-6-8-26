@@ -1,5 +1,6 @@
 
 # Algorithm Vault
+> ⚠️ *Algorithm Vault is not fully ready yet.  We’ll add the more algorithms table here and in the web soon — You can review some of them for now.*
 
 Algorithm Vault is a structured collection of fundamental data structures and algorithms with clear explanations and multi-language implementations. It is designed to help students and developers build a strong foundation in algorithms and problem-solving.
 
