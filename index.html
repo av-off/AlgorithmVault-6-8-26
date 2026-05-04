@@ -962,7 +962,7 @@ function escapeHtml(str) {
   <div id="toast-progress"></div>
 
   <div class="toast-content">
-    ⚠️ <strong>Algorithm Vault is not fully ready yet.</strong>
+     <strong>⚠️ Algorithm Vault is not fully ready yet.</strong>
     <span class="toast-sub">More algorithms coming soon — explore what's available.</span>
   </div>
 
@@ -1019,7 +1019,7 @@ function escapeHtml(str) {
 }
 
 #top-toast.show #toast-progress {
-  animation: toastTimer 5s linear forwards;
+  animation: toastTimer 10s linear forwards;
 }
 
 @keyframes toastTimer {
@@ -1089,7 +1089,7 @@ function escapeHtml(str) {
 
   setTimeout(() => {
     toast.classList.remove("show");
-  }, 5250);
+  }, 10250);
 
   closeBtn.onclick = () => {
     toast.classList.remove("show");
