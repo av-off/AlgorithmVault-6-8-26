@@ -953,28 +953,38 @@ async function showDetail(id) {
 
 // ── CHANGE 2: Share function ──
 function shareAlgo(id, name) {
-  const url = `${location.origin}${location.pathname}?algo=${encodeURIComponent(id)}`;
-  if (navigator.share) {
+  // Build URL robustly — works on GitHub Pages subpaths
+  const url = new URL(location.href);
+  url.search = ''; // clear existing params
+  url.hash = '';
+  url.searchParams.set('algo', id);
+  const shareUrl = url.toString();
+
+  if (navigator.share && /Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    // Mobile: use native share sheet
     navigator.share({
       title: `${name} — AlgorithmVault`,
       text: `Check out ${name} on AlgorithmVault`,
-      url: url
-    }).catch(() => {}); // user cancelled — no-op
+      url: shareUrl
+    }).catch(() => {});
   } else {
-    navigator.clipboard.writeText(url).then(() => {
-      showToast('Link copied to clipboard');
-    }).catch(() => {
-      // Fallback for browsers without clipboard API
+    // Desktop: copy to clipboard
+    if (navigator.clipboard && location.protocol === 'https:') {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast('Link copied to clipboard');
+      });
+    } else {
+      // Final fallback (http or old browsers)
       const ta = document.createElement('textarea');
-      ta.value = url;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
+      ta.value = shareUrl;
+      ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
       document.body.appendChild(ta);
+      ta.focus();
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
       showToast('Link copied to clipboard');
-    });
+    }
   }
 }
 
