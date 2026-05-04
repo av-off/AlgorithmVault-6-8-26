@@ -1,68 +1,43 @@
+## Bubble Sort
 
-# 🫧 Bubble Sort
+Bubble Sort is a simple, comparison-based sorting algorithm. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. [1, 2, 3, 4, 5] 
 
-Bubble Sort is a **simple comparison-based sorting algorithm** that repeatedly compares adjacent elements and swaps them if they are in the wrong order.
+------------------------------
+## 🔦 Overview
 
-It is mainly used for **learning sorting fundamentals**, not for real-world performance-critical systems.
+* Definition: A basic sorting algorithm that "bubbles" the largest (or smallest) elements to their correct positions at the end of the list.
+* Analogy: Like bubbles rising to the surface of a glass of soda; the largest values slowly move to the top of the array.
+* Core Goal: To organize a collection into ascending or descending order through local swaps. [6, 7, 8, 9, 10] 
 
----
+------------------------------
+## ⚙️ How it Works
 
-## 🚀 How it works
+   1. Iterate: Start at the beginning of the array.
+   2. Compare: Look at the first two elements.
+   3. Swap: If the first is greater than the second, swap them.
+   4. Move Forward: Move to the next pair and repeat the comparison.
+   5. Repeat Passes: After one full pass, the largest element is at the end. Repeat the process for the remaining unsorted elements. [11, 12, 13, 14, 15] 
 
-1. Start from the beginning of the array
-2. Compare each pair of adjacent elements
-3. Swap them if they are in the wrong order
-4. After each full pass, the largest element moves to the end
-5. Repeat for remaining unsorted elements
-6. Stop when no swaps occur in a pass
+------------------------------
+## 🎯 When to Use
 
----
+* Educational Purposes: It is the standard starting point for learning how sorting logic works.
+* Nearly Sorted Data: If the array is already almost sorted, Bubble Sort (with a "flag" optimization) can finish very quickly.
+* Memory Constraints: It is an "in-place" algorithm, meaning it requires almost no extra memory to run.
+* Small Datasets: For lists with very few items, its simplicity is sometimes preferred over complex algorithms. [16, 17, 18, 19, 20] 
 
-## ⚠️ Key Idea
+------------------------------
+## 🚀 Application
 
-* Large elements “bubble up” to the end after each iteration
-* Each pass reduces the unsorted portion by one element
-* Can be optimized by stopping early if no swaps happen
+* Computer Science Education: Used universally to teach the concept of algorithmic loops and swaps.
+* Graphics Hardware: Sometimes used in specialized hardware where the "swap" operation is extremely cheap.
+* Check for Sortedness: A single pass of Bubble Sort can be used to verify if a list is already sorted. [21, 22] 
 
----
+------------------------------
+## ⚠️ Common Mistakes
 
-## 📌 Example
+* Inefficiency: Beginners often use it for large datasets where it becomes extremely slow.
+* Unnecessary Passes: Forgetting to stop the algorithm early if no swaps occurred during a pass (the "Optimized Bubble Sort").
+* Indexing Errors: Off-by-one errors when comparing the "current" and "next" element at the end of the array. [23, 24, 25, 26, 27] 
 
-Input:
-`[5, 1, 4, 2, 8]`
-
-Steps:
-
-* Pass 1 → `[1, 4, 2, 5, 8]`
-* Pass 2 → `[1, 2, 4, 5, 8]`
-* Sorted → `[1, 2, 4, 5, 8]`
-
----
-
-## ⏱ Complexity
-
-* Best Case: **O(n)** (already sorted)
-* Average Case: **O(n²)**
-* Worst Case: **O(n²)**
-
----
-
-## 💡 Why it matters
-
-Bubble Sort is important for beginners because it teaches:
-
-* basic sorting logic
-* nested loops
-* swapping techniques
-* algorithm optimization ideas
-
-Even though it is inefficient, it builds a strong foundation for advanced sorting algorithms like Quick Sort and Merge Sort.
-
----
-
-## 🧠 Use Cases
-
-* Learning Data Structures & Algorithms
-* Teaching sorting concepts
-* Small datasets only
 
