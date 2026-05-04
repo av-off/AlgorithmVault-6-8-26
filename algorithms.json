@@ -8,7 +8,8 @@
     "tags": ["search", "divide-conquer"],
     "files": {
       "python": "algorithms/binary-search/binary.py",
-      "cpp": "algorithms/binary-search/binary.cpp"
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
     }
   },
   {
@@ -20,7 +21,8 @@
     "tags": ["sort"],
     "files": {
       "python": "algorithms/bubble-sort/bubble.py",
-      "cpp": "algorithms/bubble-sort/bubble.cpp"
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
     }
   },
   {
