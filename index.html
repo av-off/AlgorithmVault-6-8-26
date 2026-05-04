@@ -957,7 +957,145 @@ function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
-  
+  <!-- 🔶 TOP TOAST (MOBILE OPTIMIZED) -->
+<div id="top-toast">
+  <div id="toast-progress"></div>
+
+  <div class="toast-content">
+    ⚠️ <strong>Algorithm Vault is not fully ready yet.</strong>
+    <span class="toast-sub">More algorithms coming soon — explore what's available.</span>
+  </div>
+
+  <button id="toast-close">✕</button>
+</div>
+
+<style>
+#top-toast {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 9999;
+
+  width: min(680px, 94vw);
+  padding: 14px 14px 12px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  background: rgba(20, 25, 35, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 4px solid #facc15;
+  border-radius: 12px;
+
+  color: #e5e7eb;
+  font-size: 13px;
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+}
+
+#top-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* 🔥 Progress bar */
+#toast-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+#top-toast.show #toast-progress {
+  animation: toastTimer 5s linear forwards;
+}
+
+@keyframes toastTimer {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+/* TEXT */
+.toast-content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  flex: 1;
+  padding-right: 6px;
+}
+
+.toast-sub {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* CLOSE BUTTON */
+#toast-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+#toast-close:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* 📱 Mobile tweaks */
+@media (max-width: 480px) {
+  #top-toast {
+    width: 94vw;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .toast-content strong {
+    font-size: 13px;
+  }
+
+  .toast-sub {
+    font-size: 11px;
+  }
+}
+</style>
+
+<script>
+(function () {
+  const toast = document.getElementById("top-toast");
+  const closeBtn = document.getElementById("toast-close");
+
+  if (!toast || !closeBtn) return;
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 250);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 5250);
+
+  closeBtn.onclick = () => {
+    toast.classList.remove("show");
+  };
+})();
+</script>
 </body>
 </html>
 
