@@ -1,122 +1,46 @@
+## Binary Search
 
-# 🔍 Binary Search
+Binary Search is an efficient divide-and-conquer algorithm used to locate a specific item in a sorted collection. By repeatedly halving the search range, it finds targets significantly faster than a linear scan.
 
-Binary Search is a **divide-and-conquer algorithm** used to efficiently locate a target value within a **sorted array**.
+------------------------------
+## 🔦 Overview
 
-Instead of scanning every element, it repeatedly **cuts the search space in half**, achieving logarithmic performance.
+* Definition: A search algorithm that finds the position of a target value within a sorted array.
+* Analogy: Opening a physical dictionary to the middle, then deciding whether to search the front or back half.
+* Core Goal: To reduce the search time from linear to logarithmic.
 
----
+------------------------------
+## ⚙️ How it Works
 
-## ⚡ Complexity
+   1. Initialize: Set two boundaries, low (start) and high (end).
+   2. Calculate Mid: Find the middle index of the current range.
+   3. Evaluate:
+   * If mid == target: Return the index.
+      * If mid < target: Narrow the search to the right half.
+      * If mid > target: Narrow the search to the left half.
+   4. Repeat: Continue until the target is found or the range is empty.
 
-| Type  | Complexity |
-|-------|----------|
-| Time  | O(log n) |
-| Space | O(1)     |
+------------------------------
+## 🎯 When to Use
 
----
+* Sorted Datasets: The data must be pre-sorted; otherwise, the algorithm fails.
+* Static Data: Best used when data doesn't change often, as re-sorting after every insertion is expensive.
+* Random Access: The data structure must allow jumping to any index (like an Array, not a Linked List).
+* Large Inputs: Use when a Linear Search is too slow for the scale of your data.
 
-## 🧠 Core Idea
+------------------------------
+## 🚀 Application
 
-At each step:
+* Database Indexing: Quickly retrieving records from sorted primary keys.
+* System Libraries: Powering functions like Java's Arrays.binarySearch().
+* Debugging: The "Git Bisect" command uses binary search to find which commit introduced a bug.
 
-- Compare the target with the **middle element**
-- Eliminate **half of the array**
-- Continue on the remaining half
-
-This drastically reduces the number of comparisons.
-
----
-
-## 🔄 Algorithm Steps
-
-1. Initialize two pointers:
-   - `left = 0`
-   - `right = n - 1`
-
-2. While `left ≤ right`:
-   - Compute middle index:
-     ```
-     mid = (left + right) // 2
-     ```
-   - If `arr[mid] == target` → return index
-   - If `target < arr[mid]` → search left half
-   - If `target > arr[mid]` → search right half
-
-3. If not found → return `-1`
-
----
-
-## 📌 Example
-
-```text
-Array:  [1, 3, 5, 7, 9]
-Target: 7
-````
-
-Steps:
-
-* mid = 2 → value = 5 → go right
-* mid = 3 → value = 7 → found ✅
-
-**Output:** `3`
-
----
-
-## ⚠️ Requirements
-
-* The array **must be sorted**
-* Works best on **random-access structures** (like arrays)
-
----
-
-## 💡 Why it matters
-
-* Reduces search time from **O(n)** → **O(log n)**
-* Foundation for many advanced techniques:
-
-  * Lower/upper bound search
-  * Binary search on answers
-  * Searching in rotated arrays
-
----
-
-## 🆚 Binary vs Linear Search
-
-| Feature         | Binary Search | Linear Search |
-| --------------- | ------------- | ------------- |
-| Time Complexity | O(log n)      | O(n)          |
-| Requires Sorted | Yes           | No            |
-| Performance     | Very fast     | Slower        |
-
----
-
-## 🚀 Use Cases
-
-* Searching in large sorted datasets
-* Competitive programming problems
-* Database indexing concepts
-* Optimization problems (binary search on answer)
-
----
-
+------------------------------
 ## ⚠️ Common Mistakes
 
-* ❌ Forgetting to sort the array
-* ❌ Infinite loop due to wrong mid update
-* ❌ Overflow in `(left + right)` (use `left + (right - left) // 2` in some languages)
+* Unsorted Data: Using binary search on an unsorted array will yield incorrect results.
+* Boundary Errors: Using low < high instead of low <= high, which can skip the target.
+* Overflow: Using (low + high) // 2 in languages with fixed integer sizes (use low + (high - low) // 2 instead).
 
----
-
-## 🧩 Variations
-
-* First/last occurrence of an element
-* Lower bound / upper bound
-* Search in rotated sorted array
-* Binary search on monotonic functions
-
----
-
-> 🔥 Mastering Binary Search is essential — it shows up everywhere from interviews to real-world systems.
 
 
