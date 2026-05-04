@@ -721,8 +721,8 @@ function renderHome(list, all=false) {
           <h3 class="font-display font-600 text-sm mb-1">${a.name}</h3>
           <p class="text-xs leading-relaxed mb-3" style="color:var(--txt-muted)">${a.hint}</p>
           <div class="flex flex-wrap gap-1.5">
-            ${(a.tags||[]).slice(0,2).map(t=>`<span class="badge">${t}</span>`).join('')}
-            ${Object.keys(a.files||{}).slice(0,2).map(l=>`<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.65rem;font-family:'DM Mono',monospace;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:#a5a0ff;">${l}</span>`).join('')}
+            ${(a.tags||[]).slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}
+            ${Object.keys(a.files||{}).map(l=>`<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.65rem;font-family:'DM Mono',monospace;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:#a5a0ff;">${l}</span>`).join('')}
           </div>
         </div>`).join('')}
       </div>
