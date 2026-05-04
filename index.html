@@ -539,7 +539,16 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (Array.isArray(data) && data.length) algorithms = data;
     }
   } catch(_) {}
-  showHome();
+
+  // ── CHANGE 1: Parse ?algo= query param and open directly ──
+  const params = new URLSearchParams(location.search);
+  const algoParam = params.get('algo');
+  if (algoParam && algorithms.find(a => a.id === algoParam)) {
+    showDetail(algoParam);
+  } else {
+    showHome();
+  }
+
   setupSearch();
 });
 
@@ -848,11 +857,30 @@ async function showDetail(id) {
         Back to Vault
       </button>
 
-      <!-- Title -->
+      <!-- Title + Share Button -->
       <div class="mb-8">
         <span class="section-label mb-2 inline-block">Algorithm</span>
-        <h1 class="font-display text-3xl sm:text-4xl font-800">${algo.name}</h1>
-        <p class="mt-2 text-base" style="color:var(--txt-muted)">${algo.hint}</p>
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h1 class="font-display text-3xl sm:text-4xl font-800">${algo.name}</h1>
+            <p class="mt-2 text-base" style="color:var(--txt-muted)">${algo.hint}</p>
+          </div>
+          <button
+            onclick="shareAlgo('${algo.id}', '${algo.name.replace(/'/g, "\\'")}')"
+            class="btn-ghost flex items-center gap-2 shrink-0 mt-1"
+            title="Share this algorithm"
+            style="font-size:0.82rem; padding:8px 14px;"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Share
+          </button>
+        </div>
       </div>
 
       <!-- Complexity -->
@@ -921,6 +949,33 @@ async function showDetail(id) {
   </div>`;
 
   Prism.highlightAll();
+}
+
+// ── CHANGE 2: Share function ──
+function shareAlgo(id, name) {
+  const url = `${location.origin}${location.pathname}?algo=${encodeURIComponent(id)}`;
+  if (navigator.share) {
+    navigator.share({
+      title: `${name} — AlgorithmVault`,
+      text: `Check out ${name} on AlgorithmVault`,
+      url: url
+    }).catch(() => {}); // user cancelled — no-op
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('Link copied to clipboard');
+    }).catch(() => {
+      // Fallback for browsers without clipboard API
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Link copied to clipboard');
+    });
+  }
 }
 
 function showToast(text) {
@@ -1098,4 +1153,3 @@ function escapeHtml(str) {
 </script>
 </body>
 </html>
-
