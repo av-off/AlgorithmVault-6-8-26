@@ -1158,5 +1158,703 @@ function escapeHtml(str) {
   };
 })();
 </script>
+</script>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  ALGORITHMVAULT — SUPABASE AUTH DROP-IN                      ║
+  ║                                                              ║
+  ║  SETUP:                                                      ║
+  ║  1. Replace YOUR_SUPABASE_URL and YOUR_SUPABASE_ANON_KEY     ║
+  ║  2. In Supabase dashboard → Auth → Providers, enable:        ║
+  ║     Google, GitHub, Facebook                                 ║
+  ║  3. Set redirect URL to your GitHub Pages URL                ║
+  ║  4. Paste this entire block just before </body>              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+<!-- Auth Modal HTML -->
+<div id="auth-overlay" style="
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(8px);
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+">
+  <div id="auth-modal" style="
+    width:min(400px,92vw);
+    background:#0e1420;
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:20px;
+    padding:2rem;
+    position:relative;
+    box-shadow:0 24px 80px rgba(0,0,0,0.7);
+    animation: authSlideIn 0.25s cubic-bezier(.4,0,.2,1) both;
+  ">
+    <!-- Close -->
+    <button onclick="closeAuth()" style="
+      position:absolute;top:1rem;right:1rem;
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+      color:#6b7ea0;border-radius:8px;width:28px;height:28px;cursor:pointer;
+      font-size:14px;line-height:1;
+    ">✕</button>
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:1.75rem;">
+      <div style="
+        width:44px;height:44px;border-radius:12px;
+        background:linear-gradient(135deg,#00e5c3,#6c63ff);
+        display:flex;align-items:center;justify-content:center;
+        margin:0 auto 1rem;
+      ">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <h2 id="auth-title" style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:#e2e8f0;margin-bottom:0.3rem;">
+        Welcome to AlgorithmVault
+      </h2>
+      <p style="font-size:0.82rem;color:#6b7ea0;">Sign in to save bookmarks & track progress</p>
+    </div>
+
+    <!-- Auth buttons -->
+    <div id="auth-buttons" style="display:flex;flex-direction:column;gap:0.75rem;">
+
+      <!-- Google -->
+      <button onclick="signInWith('google')" class="auth-provider-btn" style="
+        display:flex;align-items:center;gap:12px;
+        width:100%;padding:12px 16px;
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.09);
+        border-radius:12px;cursor:pointer;
+        color:#e2e8f0;font-family:'Figtree',sans-serif;font-size:0.9rem;
+        transition:all 0.18s ease;
+      ">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M5.27 9.76A7.08 7.08 0 0 1 12 4.9c1.76 0 3.35.63 4.59 1.67l3.43-3.43A12 12 0 0 0 .19 10.84l5.08 3.94v-.02z"/><path fill="#34A853" d="M16.04 19.1A7.07 7.07 0 0 1 12 20.1a7.08 7.08 0 0 1-6.73-4.84l-5.07 3.94A12 12 0 0 0 12 24c3.24 0 6.19-1.22 8.42-3.22l-4.38-1.68z"/><path fill="#4A90D9" d="M20.46 16.78c.54-1.04.84-2.22.84-3.43 0-.86-.14-1.7-.39-2.5H12v5h4.74a5.29 5.29 0 0 1-2.15 2.75l4.87 1.87a11.98 11.98 0 0 0 1-.69z"/><path fill="#FBBC05" d="M5.27 14.26A7.1 7.1 0 0 1 4.9 12c0-.8.14-1.57.37-2.29L.19 5.77A12 12 0 0 0 0 12c0 1.93.46 3.75 1.27 5.36l4-3.1z"/></svg>
+        Continue with Google
+      </button>
+
+      <!-- GitHub -->
+      <button onclick="signInWith('github')" class="auth-provider-btn" style="
+        display:flex;align-items:center;gap:12px;
+        width:100%;padding:12px 16px;
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.09);
+        border-radius:12px;cursor:pointer;
+        color:#e2e8f0;font-family:'Figtree',sans-serif;font-size:0.9rem;
+        transition:all 0.18s ease;
+      ">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#e2e8f0"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        Continue with GitHub
+      </button>
+
+      <!-- Facebook -->
+      <button onclick="signInWith('facebook')" class="auth-provider-btn" style="
+        display:flex;align-items:center;gap:12px;
+        width:100%;padding:12px 16px;
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.09);
+        border-radius:12px;cursor:pointer;
+        color:#e2e8f0;font-family:'Figtree',sans-serif;font-size:0.9rem;
+        transition:all 0.18s ease;
+      ">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        Continue with Facebook
+      </button>
+
+      <!-- Divider -->
+      <div style="display:flex;align-items:center;gap:12px;margin:0.25rem 0;">
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.08)"></div>
+        <span style="font-size:0.75rem;color:#6b7ea0;font-family:'DM Mono',monospace;">or</span>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.08)"></div>
+      </div>
+
+      <!-- Guest -->
+      <button onclick="continueAsGuest()" style="
+        display:flex;align-items:center;justify-content:center;gap:8px;
+        width:100%;padding:11px 16px;
+        background:transparent;
+        border:1px solid rgba(0,229,195,0.25);
+        border-radius:12px;cursor:pointer;
+        color:#00e5c3;font-family:'Figtree',sans-serif;font-size:0.88rem;
+        transition:all 0.18s ease;
+      ">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Continue as Guest
+        <span style="font-size:0.72rem;color:#00e5c380;font-family:'DM Mono',monospace;">(saved locally)</span>
+      </button>
+
+    </div>
+
+    <!-- Loading state (hidden by default) -->
+    <div id="auth-loading" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="
+        width:36px;height:36px;border-radius:50%;
+        border:2px solid rgba(0,229,195,0.2);
+        border-top-color:#00e5c3;
+        animation:spin 0.7s linear infinite;
+        margin:0 auto 1rem;
+      "></div>
+      <p style="font-size:0.85rem;color:#6b7ea0;" id="auth-loading-msg">Signing in…</p>
+    </div>
+
+    <!-- Profile state (hidden by default) -->
+    <div id="auth-profile" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;">
+        <img id="auth-avatar" src="" alt="" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(0,229,195,0.3);" onerror="this.style.display='none'" />
+        <div id="auth-avatar-placeholder" style="
+          width:44px;height:44px;border-radius:50%;
+          background:linear-gradient(135deg,#00e5c3,#6c63ff);
+          display:flex;align-items:center;justify-content:center;
+          font-family:'Syne',sans-serif;font-weight:700;color:#080c12;font-size:1.1rem;
+        " id="auth-initials"></div>
+        <div>
+          <p style="font-weight:600;color:#e2e8f0;margin-bottom:2px;" id="auth-name">User</p>
+          <p style="font-size:0.78rem;color:#6b7ea0;" id="auth-email"></p>
+        </div>
+      </div>
+      <div style="
+        background:rgba(0,229,195,0.05);border:1px solid rgba(0,229,195,0.15);
+        border-radius:12px;padding:1rem;margin-bottom:1.25rem;
+        display:flex;justify-content:space-around;text-align:center;
+      ">
+        <div>
+          <p style="font-family:'DM Mono',monospace;font-size:1.3rem;font-weight:500;color:#00e5c3;" id="stat-bookmarks">0</p>
+          <p style="font-size:0.7rem;color:#6b7ea0;margin-top:2px;">Bookmarks</p>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.08)"></div>
+        <div>
+          <p style="font-family:'DM Mono',monospace;font-size:1.3rem;font-weight:500;color:#a5a0ff;" id="stat-viewed">0</p>
+          <p style="font-size:0.7rem;color:#6b7ea0;margin-top:2px;">Viewed</p>
+        </div>
+      </div>
+      <button onclick="closeAuth();showBookmarks();" style="
+        width:100%;padding:10px;border-radius:10px;margin-bottom:0.5rem;
+        background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.25);
+        color:#00e5c3;font-family:'Figtree',sans-serif;font-size:0.85rem;
+        cursor:pointer;transition:all 0.18s ease;
+        display:flex;align-items:center;justify-content:center;gap:8px;
+      ">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        View Bookmarks
+      </button>
+      <button onclick="signOut()" style="
+        width:100%;padding:10px;border-radius:10px;
+        background:transparent;border:1px solid rgba(255,255,255,0.1);
+        color:#6b7ea0;font-family:'Figtree',sans-serif;font-size:0.85rem;
+        cursor:pointer;transition:all 0.18s ease;
+      ">Sign out</button>
+    </div>
+
+    <p style="text-align:center;font-size:0.7rem;color:#6b7ea0;margin-top:1.25rem;">
+      By continuing, you agree to our open-source terms.
+    </p>
+  </div>
+</div>
+
+<!-- Nav avatar button (inject into existing nav) -->
+<style>
+  @keyframes authSlideIn {
+    from { opacity:0; transform:translateY(16px) scale(0.97); }
+    to   { opacity:1; transform:translateY(0)    scale(1);    }
+  }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  .auth-provider-btn:hover {
+    background:rgba(255,255,255,0.08) !important;
+    border-color:rgba(255,255,255,0.18) !important;
+    transform:translateY(-1px);
+  }
+
+  #auth-overlay.open { display:flex !important; }
+
+  #user-nav-btn {
+    display:flex;align-items:center;gap:8px;
+    padding:6px 12px;border-radius:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.09);
+    color:#e2e8f0;cursor:pointer;
+    font-family:'Figtree',sans-serif;font-size:0.82rem;
+    transition:all 0.18s ease;
+  }
+  #user-nav-btn:hover {
+    background:rgba(0,229,195,0.08);
+    border-color:rgba(0,229,195,0.25);
+  }
+
+  /* Bookmark button on detail page */
+  .bm-btn {
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    padding:8px 14px;
+    color:#6b7ea0;cursor:pointer;
+    font-family:'Figtree',sans-serif;font-size:0.82rem;
+    display:flex;align-items:center;gap:6px;
+    transition:all 0.18s ease;
+  }
+  .bm-btn:hover   { border-color:rgba(255,255,255,0.2);color:#e2e8f0; }
+  .bm-btn.active  { background:rgba(0,229,195,0.1);border-color:rgba(0,229,195,0.3);color:#00e5c3; }
+</style>
+
+<script>
+// ════════════════════════════════════════════════
+//  CONFIG — replace these two values
+// ════════════════════════════════════════════════
+const SUPABASE_URL     = 'https://rytzrtfgwgixmmoqznux.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5dHpydGZnd2dpeG1tb3F6bnV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5NzQ4MjIsImV4cCI6MjA5MzU1MDgyMn0.nMskjGomy8oqN-ADBeP8R0XllWEQfFLedhVh63DRio4';
+const PROVIDERS = {
+  google:   true,
+  github:   true,
+  facebook: true,   // ← flip to true/false
+  guest:    true,
+};
+(function renderProviders() {
+  if (!PROVIDERS.google)   document.querySelector('[onclick="signInWith(\'google\')"]')?.remove();
+  if (!PROVIDERS.github)   document.querySelector('[onclick="signInWith(\'github\')"]')?.remove();
+  if (!PROVIDERS.facebook) document.querySelector('[onclick="signInWith(\'facebook\')"]')?.remove();
+  if (!PROVIDERS.guest)    document.querySelector('[onclick="continueAsGuest()"]')?.remove();
+})();
+
+// ════════════════════════════════════════════════
+//  Init
+// ════════════════════════════════════════════════
+const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let _currentUser = null;   // null = not signed in
+let _isGuest     = false;
+
+// ── Guest local storage helpers ──
+function guestGet(key)       { try { return JSON.parse(localStorage.getItem('av_guest_' + key)) || []; } catch{ return []; } }
+function guestSet(key, val)  { localStorage.setItem('av_guest_' + key, JSON.stringify(val)); }
+
+// ════════════════════════════════════════════════
+//  Modal open / close
+// ════════════════════════════════════════════════
+function openAuth() {
+  document.getElementById('auth-overlay').classList.add('open');
+}
+function closeAuth() {
+  document.getElementById('auth-overlay').classList.remove('open');
+}
+document.getElementById('auth-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('auth-overlay')) closeAuth();
+});
+
+// ════════════════════════════════════════════════
+//  OAuth sign-in
+// ════════════════════════════════════════════════
+async function signInWith(provider) {
+  showAuthLoading(`Redirecting to ${provider}…`);
+  const { error } = await _sb.auth.signInWithOAuth({
+    provider,
+    options: { redirectTo: window.location.href }
+  });
+  if (error) {
+    hideAuthLoading();
+    showToast('❌ ' + error.message);
+  }
+}
+
+// ════════════════════════════════════════════════
+//  Guest mode
+// ════════════════════════════════════════════════
+function continueAsGuest() {
+  _isGuest = true;
+  _currentUser = null;
+  closeAuth();
+  updateNavButton();
+  showToast('👋 Guest mode — data saved locally');
+}
+
+// ════════════════════════════════════════════════
+//  Sign out
+// ════════════════════════════════════════════════
+async function signOut() {
+  if (!_isGuest) await _sb.auth.signOut();
+  _currentUser = null;
+  _isGuest = false;
+
+  // Reset modal back to login buttons
+  document.getElementById('auth-profile').style.display = 'none';
+  document.getElementById('auth-buttons').style.display = 'flex';
+  document.getElementById('auth-title').textContent = 'Welcome to AlgorithmVault';
+
+  closeAuth();
+  updateNavButton();
+
+  // If on bookmarks page, go home
+  if (currentView === 'bookmarks') showHome();
+
+  showToast('Signed out');
+}
+
+// ════════════════════════════════════════════════
+//  Auth state listener
+// ════════════════════════════════════════════════
+_sb.auth.onAuthStateChange(async (event, session) => {
+  _currentUser = session?.user ?? null;
+  _isGuest = false;
+
+  if (_currentUser) {
+    await ensureProfile(_currentUser);
+    closeAuth();
+    updateNavButton();
+    refreshProfilePanel();
+  } else {
+    updateNavButton();
+  }
+});
+
+// ════════════════════════════════════════════════
+//  Supabase profile table (creates if missing)
+//
+//  Run this SQL once in Supabase SQL editor:
+//  ┌─────────────────────────────────────────────┐
+//  │ create table if not exists profiles (        │
+//  │   id uuid primary key references             │
+//  │      auth.users(id) on delete cascade,       │
+//  │   bookmarks text[] default '{}',             │
+//  │   viewed   text[] default '{}',              │
+//  │   updated_at timestamptz default now()       │
+//  │ );                                           │
+//  │ alter table profiles enable row level        │
+//  │   security;                                  │
+//  │ create policy "own" on profiles              │
+//  │   using (auth.uid() = id);                   │
+//  └─────────────────────────────────────────────┘
+// ════════════════════════════════════════════════
+async function ensureProfile(user) {
+  const { data } = await _sb.from('profiles').select('id').eq('id', user.id).single();
+  if (!data) {
+    await _sb.from('profiles').insert({ id: user.id, bookmarks: [], viewed: [] });
+  }
+}
+
+async function getProfile() {
+  if (!_currentUser) return null;
+  const { data } = await _sb.from('profiles').select('*').eq('id', _currentUser.id).single();
+  return data;
+}
+
+async function updateProfile(fields) {
+  if (!_currentUser) return;
+  await _sb.from('profiles').update({ ...fields, updated_at: new Date().toISOString() }).eq('id', _currentUser.id);
+}
+
+// ════════════════════════════════════════════════
+//  Bookmark toggle
+// ════════════════════════════════════════════════
+async function toggleBookmark(algoId) {
+  if (!_currentUser && !_isGuest) { openAuth(); return; }
+
+  if (_isGuest) {
+    const bm = guestGet('bookmarks');
+    const idx = bm.indexOf(algoId);
+    if (idx > -1) bm.splice(idx, 1); else bm.push(algoId);
+    guestSet('bookmarks', bm);
+    updateBookmarkBtn(algoId);
+    showToast(bm.includes(algoId) ? '🔖 Bookmarked (local)' : 'Removed bookmark');
+    return;
+  }
+
+  const profile = await getProfile();
+  const bm = profile?.bookmarks || [];
+  const idx = bm.indexOf(algoId);
+  if (idx > -1) bm.splice(idx, 1); else bm.push(algoId);
+  await updateProfile({ bookmarks: bm });
+  updateBookmarkBtn(algoId);
+  refreshProfilePanel();
+  showToast(bm.includes(algoId) ? '🔖 Bookmarked' : 'Removed bookmark');
+}
+
+async function isBookmarked(algoId) {
+  if (_isGuest) return guestGet('bookmarks').includes(algoId);
+  if (!_currentUser) return false;
+  const p = await getProfile();
+  return (p?.bookmarks || []).includes(algoId);
+}
+
+// ════════════════════════════════════════════════
+//  Track viewed algorithms
+// ════════════════════════════════════════════════
+async function trackViewed(algoId) {
+  if (_isGuest) {
+    const viewed = guestGet('viewed');
+    if (!viewed.includes(algoId)) { viewed.push(algoId); guestSet('viewed', viewed); }
+    return;
+  }
+  if (!_currentUser) return;
+  const p = await getProfile();
+  const viewed = p?.viewed || [];
+  if (!viewed.includes(algoId)) {
+    viewed.push(algoId);
+    await updateProfile({ viewed });
+  }
+}
+
+// ════════════════════════════════════════════════
+//  UI helpers
+// ════════════════════════════════════════════════
+function showAuthLoading(msg) {
+  document.getElementById('auth-buttons').style.display = 'none';
+  document.getElementById('auth-loading').style.display = 'block';
+  document.getElementById('auth-loading-msg').textContent = msg || 'Signing in…';
+}
+function hideAuthLoading() {
+  document.getElementById('auth-buttons').style.display = 'flex';
+  document.getElementById('auth-loading').style.display = 'none';
+}
+
+function updateNavButton() {
+  const btn = document.getElementById('user-nav-btn');
+  if (!btn) return;
+  if (_currentUser) {
+    const name = _currentUser.user_metadata?.name || _currentUser.email?.split('@')[0] || 'User';
+    const avatar = _currentUser.user_metadata?.avatar_url;
+    btn.innerHTML = avatar
+      ? `<img src="${avatar}" style="width:22px;height:22px;border-radius:50%;" /> ${name.split(' ')[0]}`
+      : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${name.split(' ')[0]}`;
+  } else if (_isGuest) {
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Guest`;
+  } else {
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign In`;
+  }
+}
+
+async function refreshProfilePanel() {
+  if (!_currentUser && !_isGuest) return;
+
+  const profileDiv = document.getElementById('auth-profile');
+  const buttonsDiv = document.getElementById('auth-buttons');
+
+  buttonsDiv.style.display = 'none';
+  profileDiv.style.display  = 'block';
+  document.getElementById('auth-title').textContent = 'Your Profile';
+
+  let bookmarks = [], viewed = [];
+
+  if (_isGuest) {
+    bookmarks = guestGet('bookmarks');
+    viewed    = guestGet('viewed');
+    document.getElementById('auth-name').textContent  = 'Guest User';
+    document.getElementById('auth-email').textContent = 'Data saved locally';
+    document.getElementById('auth-avatar').style.display = 'none';
+  } else {
+    const p = await getProfile();
+    bookmarks = p?.bookmarks || [];
+    viewed    = p?.viewed    || [];
+    const meta  = _currentUser.user_metadata || {};
+    const name  = meta.name || meta.full_name || _currentUser.email?.split('@')[0] || 'User';
+    const email = _currentUser.email || '';
+    const avatar= meta.avatar_url || meta.picture || '';
+
+    document.getElementById('auth-name').textContent  = name;
+    document.getElementById('auth-email').textContent = email;
+
+    const avatarEl  = document.getElementById('auth-avatar');
+    const initialEl = document.getElementById('auth-initials');
+
+    if (avatar) {
+      avatarEl.src = avatar;
+      avatarEl.style.display = 'block';
+      initialEl.style.display = 'none';
+    } else {
+      avatarEl.style.display = 'none';
+      initialEl.style.display = 'flex';
+      initialEl.textContent = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    }
+  }
+
+  document.getElementById('stat-bookmarks').textContent = bookmarks.length;
+  document.getElementById('stat-viewed').textContent    = viewed.length;
+}
+
+async function updateBookmarkBtn(algoId) {
+  const btn = document.getElementById('bm-btn-' + algoId);
+  if (!btn) return;
+  const active = await isBookmarked(algoId);
+  btn.className = 'bm-btn' + (active ? ' active' : '');
+  btn.innerHTML = active
+    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Saved`
+    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Bookmark`;
+}
+
+// ════════════════════════════════════════════════
+//  Inject nav button into existing nav
+// ════════════════════════════════════════════════
+(function injectNavBtn() {
+  const nav = document.querySelector('nav .flex.items-center.gap-3');
+  if (!nav) return;
+  const btn = document.createElement('button');
+  btn.id = 'user-nav-btn';
+  btn.setAttribute('onclick', 'handleNavAuth()');
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign In`;
+  nav.prepend(btn);
+})();
+
+function handleNavAuth() {
+  if (_currentUser || _isGuest) {
+    openAuth();
+    refreshProfilePanel();
+  } else {
+    openAuth();
+  }
+}
+
+// ════════════════════════════════════════════════
+//  Hook into existing showDetail to add bookmark
+//  button + track viewed
+// ════════════════════════════════════════════════
+const _origShowDetail = window.showDetail;
+window.showDetail = async function(id) {
+  await _origShowDetail(id);
+  trackViewed(id);
+
+  // Inject bookmark button after the share button
+  const shareBtn = document.querySelector('[onclick*="shareAlgo"]');
+  if (shareBtn && shareBtn.parentElement) {
+    const bmBtn = document.createElement('button');
+    bmBtn.id = 'bm-btn-' + id;
+    bmBtn.className = 'bm-btn';
+    bmBtn.setAttribute('onclick', `toggleBookmark('${id}')`);
+    bmBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Bookmark`;
+    shareBtn.parentElement.insertBefore(bmBtn, shareBtn.nextSibling);
+    updateBookmarkBtn(id);
+  }
+};
+
+// Init check on load
+_sb.auth.getSession().then(({ data }) => {
+  if (data.session) {
+    _currentUser = data.session.user;
+    updateNavButton();
+  }
+});
+
+// ════════════════════════════════════════════════
+//  Bookmarks page
+// ════════════════════════════════════════════════
+async function showBookmarks() {
+  if (!_currentUser && !_isGuest) { openAuth(); return; }
+
+  currentView = 'bookmarks';
+
+  // Get bookmark IDs
+  let bmIds = [];
+  if (_isGuest) {
+    bmIds = guestGet('bookmarks');
+  } else {
+    const p = await getProfile();
+    bmIds = p?.bookmarks || [];
+  }
+
+  const bmAlgos = algorithms.filter(a => bmIds.includes(a.id));
+
+  document.getElementById('main').innerHTML = `
+  <div class="page">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <button onclick="showHome()" class="flex items-center gap-2 text-sm mb-3 group" style="color:var(--txt-muted)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:-translate-x-1 transition-transform"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Vault
+          </button>
+          <span class="section-label mb-2 inline-block">Your Collection</span>
+          <h1 class="font-display text-3xl font-800">Bookmarks</h1>
+        </div>
+        ${bmAlgos.length > 0 ? `<span class="badge" style="font-size:0.8rem;padding:4px 14px;">${bmAlgos.length} saved</span>` : ''}
+      </div>
+
+      <!-- Empty state -->
+      ${bmAlgos.length === 0 ? `
+      <div style="
+        text-align:center;padding:5rem 2rem;
+        background:var(--glass);border:1px solid var(--border);
+        border-radius:20px;
+      ">
+        <div style="
+          width:56px;height:56px;border-radius:14px;
+          background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.15);
+          display:flex;align-items:center;justify-content:center;
+          margin:0 auto 1.25rem;
+        ">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-600 mb-2">No bookmarks yet</h3>
+        <p style="color:var(--txt-muted);font-size:0.9rem;margin-bottom:1.5rem;">
+          Open any algorithm and hit the Bookmark button to save it here.
+        </p>
+        <button onclick="showHome()" class="btn-primary">Browse Algorithms</button>
+      </div>` : `
+
+      <!-- Cards grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        ${bmAlgos.map((a, i) => `
+        <div class="algo-card" style="animation-delay:${i*0.04}s;position:relative;">
+
+          <!-- Remove bookmark -->
+          <button onclick="event.stopPropagation();removeBookmarkFromPage('${a.id}')" title="Remove bookmark" style="
+            position:absolute;top:10px;right:10px;
+            background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+            border-radius:7px;width:26px;height:26px;
+            display:flex;align-items:center;justify-content:center;
+            cursor:pointer;color:#6b7ea0;transition:all 0.15s ease;
+          " onmouseover="this.style.color='#ff6b6b';this.style.borderColor='rgba(255,107,107,0.3)'"
+             onmouseout="this.style.color='#6b7ea0';this.style.borderColor='rgba(255,255,255,0.1)'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+
+          <div onclick="showDetail('${a.id}')" style="cursor:pointer;">
+            <div class="flex items-start justify-between mb-3" style="padding-right:1.5rem;">
+              <div class="w-9 h-9 rounded-10 flex items-center justify-center" style="background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.15);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <span class="font-mono text-xs" style="color:var(--txt-muted)">${a.time}</span>
+            </div>
+            <h3 class="font-display font-600 text-sm mb-1">${a.name}</h3>
+            <p class="text-xs leading-relaxed mb-3" style="color:var(--txt-muted)">${a.hint}</p>
+            <div class="flex flex-wrap gap-1.5">
+              ${(a.tags||[]).slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}
+            </div>
+          </div>
+        </div>`).join('')}
+      </div>`}
+
+    </div>
+  </div>`;
+}
+
+async function removeBookmarkFromPage(algoId) {
+  await toggleBookmark(algoId);
+  showBookmarks(); // refresh the page
+}
+
+// Inject bookmarks nav link
+(function injectBookmarksNavLink() {
+  const nav = document.querySelector('nav .flex.items-center.gap-3');
+  if (!nav) return;
+  const btn = document.createElement('button');
+  btn.id = 'bm-nav-btn';
+  btn.className = 'btn-ghost';
+  btn.style.cssText = 'font-size:0.82rem;padding:6px 12px;display:flex;align-items:center;gap:6px;';
+  btn.setAttribute('onclick', 'handleBookmarksNav()');
+  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span class="hidden sm:inline">Bookmarks</span>`;
+  nav.prepend(btn);
+})();
+
+function handleBookmarksNav() {
+  if (!_currentUser && !_isGuest) { openAuth(); return; }
+  showBookmarks();
+}
+</script>
 </body>
 </html>
