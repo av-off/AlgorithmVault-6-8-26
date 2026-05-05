@@ -1355,6 +1355,7 @@ async function signInWith(provider) {
 function continueAsGuest() {
   _isGuest = true;
   _currentUser = null;
+  localStorage.setItem('av_guest_mode', 'true');  // ← save to localStorage
   closeAuth();
   updateNavButton();
   showToast('👋 Guest mode — data saved locally');
@@ -1367,7 +1368,7 @@ async function signOut() {
   if (!_isGuest) await _sb.auth.signOut();
   _currentUser = null;
   _isGuest = false;
-
+  localStorage.removeItem('av_guest_mode');  // ← ADD THIS LINE
   // Reset modal back to login buttons
   document.getElementById('auth-profile').style.display = 'none';
   document.getElementById('auth-buttons').style.display = 'flex';
@@ -1619,15 +1620,17 @@ window.showDetail = async function(id) {
 
 // Init check on load
 (async function initAuth() {
+  // ← ADD THESE 3 LINES
+  if (localStorage.getItem('av_guest_mode') === 'true') {
+    _isGuest = true;
+    updateNavButton();
+  }
+
   const { data: { session } } = await _sb.auth.getSession();
   if (session) {
     _currentUser = session.user;
     await ensureProfile(_currentUser);
     updateNavButton();
-    // If auth modal was open, refresh profile panel
-    if (document.getElementById('auth-overlay').classList.contains('open')) {
-      refreshProfilePanel();
-    }
   }
 })();
 
