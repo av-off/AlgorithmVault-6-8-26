@@ -1386,16 +1386,19 @@ async function signOut() {
 // ════════════════════════════════════════════════
 //  Auth state listener
 // ════════════════════════════════════════════════
+let _authInitialized = false;
+
 _sb.auth.onAuthStateChange(async (event, session) => {
   _currentUser = session?.user ?? null;
-  _isGuest = false;
 
   if (_currentUser) {
+    _isGuest = false;
     await ensureProfile(_currentUser);
     closeAuth();
     updateNavButton();
     refreshProfilePanel();
-  } else {
+  } else if (_authInitialized) {
+    _isGuest = localStorage.getItem('av_guest_mode') === 'true';
     updateNavButton();
   }
 });
@@ -1620,7 +1623,6 @@ window.showDetail = async function(id) {
 
 // Init check on load
 (async function initAuth() {
-  // ← ADD THESE 3 LINES
   if (localStorage.getItem('av_guest_mode') === 'true') {
     _isGuest = true;
     updateNavButton();
@@ -1632,8 +1634,9 @@ window.showDetail = async function(id) {
     await ensureProfile(_currentUser);
     updateNavButton();
   }
-})();
 
+  _authInitialized = true;
+})();
 // ════════════════════════════════════════════════
 //  Bookmarks page
 // ════════════════════════════════════════════════
