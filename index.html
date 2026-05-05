@@ -1416,9 +1416,13 @@ _sb.auth.onAuthStateChange(async (event, session) => {
     closeAuth();
     updateNavButton();
     refreshProfilePanel();
+
+    updateAvatarUI(); // ✅ ADD HERE
   } else if (_authInitialized) {
     _isGuest = localStorage.getItem('av_guest_mode') === 'true';
     updateNavButton();
+
+    updateAvatarUI(); // ✅ ALSO ADD HERE (for logout case)
   }
 });
 
@@ -1521,7 +1525,23 @@ function hideAuthLoading() {
   document.getElementById('auth-buttons').style.display = 'flex';
   document.getElementById('auth-loading').style.display = 'none';
 }
+function updateAvatarUI() {
+  const avatarImg = document.getElementById("profileAvatar");
+  const avatarFallback = document.getElementById("avatarFallback");
 
+  if (!avatarImg) return;
+
+  const avatarUrl = _currentUser?.user_metadata?.avatar_url;
+
+  if (avatarUrl) {
+    avatarImg.src = avatarUrl;
+    avatarImg.style.display = "block";
+    if (avatarFallback) avatarFallback.style.display = "none";
+  } else {
+    avatarImg.style.display = "none";
+    if (avatarFallback) avatarFallback.style.display = "block";
+  }
+}
 function updateNavButton() {
   const btn = document.getElementById('user-nav-btn');
   if (!btn) return;
