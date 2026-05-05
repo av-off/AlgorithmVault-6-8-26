@@ -1618,12 +1618,18 @@ window.showDetail = async function(id) {
 };
 
 // Init check on load
-_sb.auth.getSession().then(({ data }) => {
-  if (data.session) {
-    _currentUser = data.session.user;
+(async function initAuth() {
+  const { data: { session } } = await _sb.auth.getSession();
+  if (session) {
+    _currentUser = session.user;
+    await ensureProfile(_currentUser);
     updateNavButton();
+    // If auth modal was open, refresh profile panel
+    if (document.getElementById('auth-overlay').classList.contains('open')) {
+      refreshProfilePanel();
+    }
   }
-});
+})();
 
 // ════════════════════════════════════════════════
 //  Bookmarks page
