@@ -1111,6 +1111,25 @@ function escapeHtml(str) {
     <!-- Auth buttons -->
     <div id="auth-buttons" style="display:flex;flex-direction:column;gap:0.75rem;">
 
+     <div id="gh-notice" style="
+  width:100%;
+  background:#2d1b00;
+  border-bottom:1px solid #f59e0b44;
+  padding:10px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:13px;
+  color:#fcd34d;
+  font-family:'Figtree',sans-serif;
+  position:relative;
+  z-index:49;
+">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="shrink:0;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  <span><strong>You can login as a guest for now.</strong> Login with Facebook, Google and github coming soon</span>
+
+</div>
       <!-- Google -->
       <button onclick="signInWith('google')" class="auth-provider-btn" style="
         display:flex;align-items:center;gap:12px;
@@ -1297,9 +1316,9 @@ function escapeHtml(str) {
 const SUPABASE_URL     = 'https://rytzrtfgwgixmmoqznux.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5dHpydGZnd2dpeG1tb3F6bnV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5NzQ4MjIsImV4cCI6MjA5MzU1MDgyMn0.nMskjGomy8oqN-ADBeP8R0XllWEQfFLedhVh63DRio4';
 const PROVIDERS = {
-  google:   true,
-  github:   true,
-  facebook: true,   // ← flip to true/false
+   google:   false,
+  github:   false,
+  facebook: false,   // ← flip to true/false
   guest:    true,
 };
 (function renderProviders() {
