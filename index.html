@@ -866,22 +866,24 @@ async function showDetail(id) {
             <h1 class="font-display text-3xl sm:text-4xl font-800">${algo.name}</h1>
             <p class="mt-2 text-base" style="color:var(--txt-muted)">${algo.hint}</p>
           </div>
-          <button
-            onclick="shareAlgo('${algo.id}', '${algo.name.replace(/'/g, "\\'")}')"
-            class="btn-ghost flex items-center gap-2 shrink-0 mt-1"
-            title="Share this algorithm"
-            style="font-size:0.82rem; padding:8px 14px;"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="18" cy="5" r="3"/>
-              <circle cx="6" cy="12" r="3"/>
-              <circle cx="18" cy="19" r="3"/>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-            </svg>
-            Share
-          </button>
-        </div>
+           </div>
+      </div>
+
+      <!-- Action buttons row -->
+      <div class="flex items-center gap-2 mt-4 mb-8">
+        <button
+          onclick="shareAlgo('${algo.id}', '${algo.name.replace(/'/g, "\\'")}')"
+          class="btn-ghost flex items-center gap-2"
+          style="font-size:0.82rem; padding:8px 14px;"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share
+        </button>
+        <div id="bm-placeholder-${algo.id}"></div>
       </div>
 
       <!-- Complexity -->
@@ -1717,15 +1719,15 @@ window.showDetail = async function(id) {
   await _origShowDetail(id);
   trackViewed(id);
 
-  // Inject bookmark button after the share button
-  const shareBtn = document.querySelector('[onclick*="shareAlgo"]');
-  if (shareBtn && shareBtn.parentElement) {
+  // Inject bookmark button into placeholder
+  const placeholder = document.getElementById('bm-placeholder-' + id);
+  if (placeholder) {
     const bmBtn = document.createElement('button');
     bmBtn.id = 'bm-btn-' + id;
     bmBtn.className = 'bm-btn';
     bmBtn.setAttribute('onclick', `toggleBookmark('${id}')`);
     bmBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Bookmark`;
-    shareBtn.parentElement.insertBefore(bmBtn, shareBtn.nextSibling);
+    placeholder.appendChild(bmBtn);
     updateBookmarkBtn(id);
   }
 };
