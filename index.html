@@ -295,7 +295,6 @@
     </div>
   </nav>
 
-  <!-- FIX 1: Unique ID — was "gh-notice" (duplicate). Renamed to "site-gh-notice" -->
   <div id="site-gh-notice" style="
     width:100%;
     background:#2d1b00;
@@ -857,7 +856,6 @@ function escapeHtml(str) {
     </div>
 
     <div id="auth-buttons" style="display:flex;flex-direction:column;gap:0.75rem;">
-      <!-- FIX 1: Unique ID — was "gh-notice" (duplicate with main banner). Renamed to "auth-gh-notice" -->
       <div id="auth-gh-notice" style="
         width:100%;background:#2d1b00;
         border:1px solid #f59e0b44;border-radius:8px;
@@ -976,7 +974,6 @@ const PROVIDERS = {
   guest:    true,
 };
 
-// FIX 2: Run renderProviders after DOM is ready, not immediately at parse time
 document.addEventListener('DOMContentLoaded', function renderProviders() {
   if (!PROVIDERS.google)   document.querySelector('[onclick="signInWith(\'google\')"]')?.remove();
   if (!PROVIDERS.github)   document.querySelector('[onclick="signInWith(\'github\')"]')?.remove();
@@ -988,7 +985,6 @@ const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let _currentUser = null;
 let _isGuest     = false;
-// FIX 3: Set to true by default; initAuth will finalize state
 let _authInitialized = false;
 
 function guestGet(key)      { try { return JSON.parse(localStorage.getItem('av_guest_' + key)) || []; } catch{ return []; } }
@@ -1018,21 +1014,17 @@ async function signInWith(provider) {
   }
 }
 
-// FIX 4: continueAsGuest now also refreshes the profile panel so reopening the
-//         modal shows the profile view instead of the login buttons again.
 function continueAsGuest() {
   _isGuest = true;
   _currentUser = null;
   localStorage.setItem('av_guest_mode', 'true');
   updateNavButton();
-  // Show profile panel immediately inside the still-open modal
   refreshProfilePanel();
   showToast('Guest mode - data saved locally');
 }
 
 // ── Sign out ──
 async function signOut() {
-  // FIX 5: Reset panel state BEFORE closing the modal to avoid flicker
   document.getElementById('auth-profile').style.display  = 'none';
   document.getElementById('auth-buttons').style.display  = 'flex';
   document.getElementById('auth-title').textContent = 'Welcome to AlgorithmVault';
@@ -1060,7 +1052,6 @@ _sb.auth.onAuthStateChange(async (event, session) => {
     refreshProfilePanel();
     updateAvatarUI();
   } else if (_authInitialized) {
-    // FIX 3 cont: Now _authInitialized is true before this branch can matter
     _isGuest = localStorage.getItem('av_guest_mode') === 'true';
     updateNavButton();
     updateAvatarUI();
@@ -1232,7 +1223,6 @@ async function updateBookmarkBtn(algoId) {
   const nav = document.querySelector('nav .flex.items-center.gap-3');
   if (!nav) return;
 
-  // Bookmarks button
   const bmBtn = document.createElement('button');
   bmBtn.id = 'bm-nav-btn';
   bmBtn.className = 'btn-ghost';
@@ -1241,7 +1231,6 @@ async function updateBookmarkBtn(algoId) {
   bmBtn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span class="hidden sm:inline">Bookmarks</span>`;
   nav.prepend(bmBtn);
 
-  // User/Sign-in button
   const userBtn = document.createElement('button');
   userBtn.id = 'user-nav-btn';
   userBtn.setAttribute('onclick', 'handleNavAuth()');
@@ -1249,7 +1238,6 @@ async function updateBookmarkBtn(algoId) {
   nav.prepend(userBtn);
 })();
 
-// FIX 6: Open modal first, then refresh panel (order matters)
 function handleNavAuth() {
   openAuth();
   if (_currentUser || _isGuest) {
@@ -1279,16 +1267,12 @@ window.showDetail = async function(id) {
   }
 };
 
-// FIX 3 (cont): initAuth sets _authInitialized = true BEFORE the await,
-//               so onAuthStateChange can rely on it during the session check.
 (async function initAuth() {
-  // Restore guest mode immediately — before any awaits
   if (localStorage.getItem('av_guest_mode') === 'true') {
     _isGuest = true;
     updateNavButton();
   }
 
-  // Mark initialized so the onAuthStateChange listener can use the else-if branch
   _authInitialized = true;
 
   const { data: { session } } = await _sb.auth.getSession();
@@ -1373,4 +1357,3 @@ async function removeBookmarkFromPage(algoId) {
 </script>
 </body>
 </html>
-```
