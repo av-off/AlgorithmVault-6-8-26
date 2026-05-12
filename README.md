@@ -13,11 +13,11 @@ Algorithm Vault is a structured collection of fundamental data structures and al
 
 [All Algorithms](algorithms/)
 
-| Algorithm | Explanation | C++ | Java | Python | All Files |
-|----------|-------------|-----|------|--------|------------|
-| Binary Search | [Readme](algorithms/binary-search/README.md) | [C++](algorithms/binary-search/binary.cpp) | [Java](algorithms/binary-search/binary.java) | [Python](algorithms/binary-search/binary.py) | [folder](algorithms/binary-search/) |
-| Bubble Sort | [Readme](algorithms/bubble-sort/README.md) | [C++](algorithms/bubble-sort/bubble.cpp) | [Java](algorithms/bubble-sort/bubble.java) | [Python](algorithms/bubble-sort/bubble.py) | [folder](algorithms/bubble-sort/) |
-| Quick Sort | [Readme](algorithms/quick-sort/README.md) | [C++](algorithms/quick-sort/quick.cpp) | [Java](algorithms/quick-sort/quick.java) | [Python](algorithms/quick-sort/quick.py) | [folder](algorithms/quick-sort/) |
+| Algorithm | Explanation | C++ | Java | Python | All Files | Website |
+|----------|-------------|-----|------|--------|------------|----------|
+| Binary Search | [Readme](algorithms/binary-search/README.md) | [C++](algorithms/binary-search/binary.cpp) | [Java](algorithms/binary-search/binary.java) | [Python](algorithms/binary-search/binary.py) | [folder](algorithms/binary-search/) | [Web](https://algorithm-vault.vercel.app/?algo=binary-search) |
+| Bubble Sort | [Readme](algorithms/bubble-sort/README.md) | [C++](algorithms/bubble-sort/bubble.cpp) | [Java](algorithms/bubble-sort/bubble.java) | [Python](algorithms/bubble-sort/bubble.py) | [folder](algorithms/bubble-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=bubble-sort) |
+| Quick Sort | [Readme](algorithms/quick-sort/README.md) | [C++](algorithms/quick-sort/quick.cpp) | [Java](algorithms/quick-sort/quick.java) | [Python](algorithms/quick-sort/quick.py) | [folder](algorithms/quick-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=quick-sort) |
 |Coming soon.......|
 ## Overview
 
