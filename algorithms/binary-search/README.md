@@ -37,10 +37,11 @@ Binary Search is an efficient divide-and-conquer algorithm used to locate a spec
 
 ------------------------------
 ## ⚠️ Common Mistakes
-
-* Unsorted Data: Using binary search on an unsorted array will yield incorrect results.
-* Boundary Errors: Using low < high instead of low <= high, which can skip the target.
-* Overflow: Using (low + high) // 2 in languages with fixed integer sizes (use low + (high - low) // 2 instead).
+> [!NOTE]
+> Common Mistakes:
+> * Unsorted Data: Using binary search on an unsorted array will yield incorrect results.
+> * Boundary Errors: Using low < high instead of low <= high, which can skip the target.
+> * Overflow: Using (low + high) // 2 in languages with fixed integer sizes (use low + (high - low) // 2 instead).
 
 
 
