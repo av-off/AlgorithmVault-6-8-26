@@ -34,7 +34,8 @@
     "tags": ["sort", "divide-conquer"],
     "files": {
       "python": "algorithms/quick-sort/quick.py",
-      "cpp": "algorithms/quick-sort/quick.cpp"
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
     }
   },
   {
