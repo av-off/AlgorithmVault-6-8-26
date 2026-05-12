@@ -9,6 +9,16 @@ Algorithm Vault is a structured collection of fundamental data structures and al
   <img src="Screenshoots/Screenshot (29).png" width="600"/>
 </p>
 
+## ⚡ Algorithms
+
+[All Algorithms](algorithms/)
+
+| Algorithm | Explanation | C++ | Java | Python | All Files |
+|----------|-------------|-----|------|--------|------------|
+| Binary Search | [Readme](algorithms/binary-search/README.md) | [C++](algorithms/binary-search/binary.cpp) | [Java](algorithms/binary-search/binary.java) | [Python](algorithms/binary-search/binary.py) | [folder](algorithms/binary-search/) |
+| Bubble Sort | [Readme](algorithms/bubble-sort/README.md) | [C++](algorithms/bubble-sort/bubble.cpp) | [Java](algorithms/bubble-sort/bubble.java) | [Python](algorithms/bubble-sort/bubble.py) | [folder](algorithms/bubble-sort/) |
+| Quick Sort | [Readme](algorithms/quick-sort/README.md) | [C++](algorithms/quick-sort/quick.cpp) | [Java](algorithms/quick-sort/quick.java) | [Python](algorithms/quick-sort/quick.py) | [folder](algorithms/quick-sort/) |
+|Coming soon.......|
 ## Overview
 
 This project organizes essential algorithms in a consistent format, making it easier to learn, compare, and revise key concepts in computer science and competitive programming.
