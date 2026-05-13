@@ -600,9 +600,46 @@ async function showBookmarks() {
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
             ${bmAlgos.map((a, i) => `
-              <div class="algo-card"
-                   style="animation-delay:${i * 0.03}s"
-                   onclick="showDetail('${a.id}')">
+              <div 
+                class="algo-card group relative overflow-hidden"
+                onclick="showDetail('${a.id}')"
+                style="
+                  animation-delay:${i * 0.03}s;
+                  cursor:pointer;
+                "
+              >
+
+                <!-- remove button -->
+                <button
+                  onclick="event.stopPropagation(); removeBookmarkFromPage('${a.id}')"
+                  style="
+                    position:absolute;
+                    top:10px;
+                    right:10px;
+                    width:28px;
+                    height:28px;
+                    border-radius:999px;
+                    border:1px solid rgba(255,255,255,0.08);
+                    background:rgba(255,255,255,0.03);
+                    color:var(--txt-muted);
+                    cursor:pointer;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    transition:0.2s;
+                    z-index:10;
+                  "
+                  onmouseover="
+                    this.style.background='rgba(255,0,0,0.08)';
+                    this.style.color='#ff6b6b';
+                  "
+                  onmouseout="
+                    this.style.background='rgba(255,255,255,0.03)';
+                    this.style.color='var(--txt-muted)';
+                  "
+                >
+                  ✕
+                </button>
 
                 <div class="flex items-start justify-between mb-3">
 
@@ -622,13 +659,9 @@ async function showBookmarks() {
                       <polyline points="16 18 22 12 16 6"/>
                       <polyline points="8 6 2 12 8 18"/>
                     </svg>
-
                   </div>
 
-                  <span class="font-mono text-xs"
-                    style="color:var(--txt-muted)">
-                    ${a.time || 'O(?)'}
-                  </span>
+                  
 
                 </div>
 
@@ -642,11 +675,9 @@ async function showBookmarks() {
                 </p>
 
                 <div class="flex flex-wrap gap-1.5">
-
                   ${(a.tags || []).slice(0,3).map(t => `
                     <span class="badge">${t}</span>
                   `).join('')}
-
                 </div>
 
               </div>
@@ -748,53 +779,91 @@ async function showHistory() {
           `
           : `
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
             ${viewedAlgos.map((a, i) => `
-              <div class="algo-card"
-                   style="animation-delay:${i * 0.03}s"
-                   onclick="showDetail('${a.id}')">
+              <div class="algo-card group relative overflow-hidden"
+                   style="animation-delay:${i * 0.03}s">
 
-                <div class="flex items-start justify-between mb-3">
-                  <div class="w-9 h-9 flex items-center justify-center"
-                    style="
-                      background:rgba(0,229,195,0.08);
-                      border:1px solid rgba(0,229,195,0.15);
-                      border-radius:10px;
-                    ">
+                <!-- remove button -->
+                <button
+                  onclick="event.stopPropagation(); removeHistoryItem('${a.id}')"
+                  style="
+                    position:absolute;
+                    top:10px;
+                    right:10px;
+                    width:28px;
+                    height:28px;
+                    border-radius:999px;
+                    border:1px solid rgba(255,255,255,0.08);
+                    background:rgba(255,255,255,0.03);
+                    color:var(--txt-muted);
+                    cursor:pointer;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    transition:0.2s;
+                    z-index:10;
+                  "
+                  onmouseover="
+                    this.style.background='rgba(255,0,0,0.08)';
+                    this.style.color='#ff6b6b';
+                  "
+                  onmouseout="
+                    this.style.background='rgba(255,255,255,0.03)';
+                    this.style.color='var(--txt-muted)';
+                  "
+                >
+                  ✕
+                </button>
 
-                    <svg width="14" height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--accent)"
-                      stroke-width="2.5">
+                <!-- clickable area -->
+                <div 
+                  onclick="showDetail('${a.id}')"
+                  style="cursor:pointer; position:relative; z-index:1;"
+                >
 
-                      <polyline points="16 18 22 12 16 6"/>
-                      <polyline points="8 6 2 12 8 18"/>
-                    </svg>
+                  <div class="flex items-start justify-between mb-3">
+
+                    <div class="w-9 h-9 flex items-center justify-center"
+                      style="
+                        background:rgba(0,229,195,0.08);
+                        border:1px solid rgba(0,229,195,0.15);
+                        border-radius:10px;
+                      ">
+
+                      <svg width="14" height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent)"
+                        stroke-width="2.5">
+
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                      </svg>
+                    </div>
+
+                    
                   </div>
 
-                  <span class="font-mono text-xs"
+                  <h3 class="font-display font-600 text-sm mb-1">
+                    ${a.name}
+                  </h3>
+
+                  <p class="text-xs leading-relaxed mb-3"
                     style="color:var(--txt-muted)">
-                    ${a.time || 'O(?)'}
-                  </span>
+                    ${a.hint}
+                  </p>
+
+                  <div class="flex flex-wrap gap-1.5">
+                    ${(a.tags || []).slice(0,3).map(t => `
+                      <span class="badge">${t}</span>
+                    `).join('')}
+                  </div>
+
                 </div>
-
-                <h3 class="font-display font-600 text-sm mb-1">
-                  ${a.name}
-                </h3>
-
-                <p class="text-xs leading-relaxed mb-3"
-                  style="color:var(--txt-muted)">
-                  ${a.hint}
-                </p>
-
-                <div class="flex flex-wrap gap-1.5">
-                  ${(a.tags || []).slice(0,3).map(t => `
-                    <span class="badge">${t}</span>
-                  `).join('')}
-                </div>
-
               </div>
             `).join('')}
+
           </div>
 
           <div class="text-center mt-10">
@@ -807,6 +876,20 @@ async function showHistory() {
 
     </div>
   </div>`;
+}
+function removeHistoryItem(algoId) {
+  let viewed = [];
+
+  try {
+    viewed = JSON.parse(localStorage.getItem('av_viewed')) || [];
+  } catch {}
+
+  viewed = viewed.filter(id => id !== algoId);
+
+  localStorage.setItem('av_viewed', JSON.stringify(viewed));
+
+  showToast('Removed from history');
+  showHistory();
 }
 function clearHistory() {
   localStorage.removeItem('av_viewed');
