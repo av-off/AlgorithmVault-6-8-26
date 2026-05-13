@@ -199,10 +199,15 @@ function renderHome(list, all=false) {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             Search Algorithms
           </button>
-          <button onclick="showAll()" class="btn-ghost flex items-center gap-2">
-            Browse All
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          <a href="/Progress/" style="
+            display:inline-flex;align-items:center;gap:6px;
+            padding:10px 16px;border-radius:10px;
+            border:1px solid rgba(0,229,195,0.3);color:#00e5c3;
+            background:rgba(0,229,195,0.08);font-size:13px;
+            font-family:'DM Mono', monospace;text-decoration:none;transition:0.2s;
+          " onmouseover="this.style.boxShadow='0 0 15px rgba(0,229,195,0.3)'" onmouseout="this.style.boxShadow='none'">
+            Progress & Notice
+          </a>
           <a href="/Specials/" style="
             display:inline-flex;align-items:center;gap:6px;
             padding:10px 16px;border-radius:10px;
