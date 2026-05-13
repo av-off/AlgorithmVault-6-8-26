@@ -459,46 +459,130 @@ function askLocalStoragePermission(callback) {
 
   const toast = document.createElement('div');
   toast.innerHTML = `
+  <div style="
+  position:fixed;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#0f172a,#111827);
+  border:1px solid rgba(0,229,195,0.18);
+  padding:22px;
+  border-radius:22px;
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  z-index:99999;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+  max-width:560px;
+  width:calc(100% - 32px);
+  animation:fadeIn .25s ease;
+  backdrop-filter:blur(14px);
+">
+
+  <!-- permission icon -->
+  <div style="
+    width:52px;
+    height:52px;
+    min-width:52px;
+    border-radius:16px;
+    background:rgba(0,229,195,0.08);
+    border:1px solid rgba(0,229,195,0.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  ">
+    <svg width="24" height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#00e5c3"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+
+      <path d="M12 1l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V5l9-4z"/>
+      <path d="M9 12l2 2 4-4"/>
+    </svg>
+  </div>
+
+  <!-- content -->
+  <div style="flex:1">
+
     <div style="
-      position:fixed;
-      bottom:24px;
-      left:50%;
-      transform:translateX(-50%);
-      background:#111827;
-      border:1px solid rgba(255,255,255,0.08);
-      padding:14px 16px;
-      border-radius:14px;
       display:flex;
       align-items:center;
-      gap:12px;
-      z-index:99999;
-      box-shadow:0 10px 40px rgba(0,0,0,0.4);
-      max-width:420px;
-      width:calc(100% - 32px);
-      animation:fadeIn .2s ease;
+      gap:8px;
+      margin-bottom:8px;
     ">
-      <div style="flex:1">
-        <p style="font-size:13px;font-weight:600;margin-bottom:3px;color:white">
-          Enable local bookmarks?
-        </p>
-        <p style="font-size:12px;color:#94a3b8;line-height:1.5">
-          Your bookmarks will be saved only on this device using local storage.
-        </p>
-      </div>
+      <span style="
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        color:#00e5c3;
+        background:rgba(0,229,195,0.08);
+        border:1px solid rgba(0,229,195,0.15);
+        padding:4px 8px;
+        border-radius:999px;
+      ">
+        Permission Request
+      </span>
+    </div>
+
+    <p style="
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:8px;
+      color:white;
+      line-height:1.3;
+    ">
+      Allow local storage access?
+    </p>
+
+    <p style="
+      font-size:14px;
+      color:#94a3b8;
+      line-height:1.7;
+      margin-bottom:18px;
+    ">
+      AlgorithmVault wants permission to store bookmarks and recently viewed algorithms locally on this device.
+      Your data stays inside your browser and is never uploaded anywhere.
+    </p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
 
       <button id="local-accept-btn" style="
         background:#00e5c3;
         color:black;
         border:none;
-        padding:8px 12px;
-        border-radius:10px;
-        font-size:12px;
+        padding:12px 18px;
+        border-radius:12px;
+        font-size:13px;
+        font-weight:700;
+        cursor:pointer;
+        transition:.2s;
+      ">
+        Allow Access
+      </button>
+
+      <button onclick="this.closest('div').parentNode.parentNode.remove()" style="
+        background:rgba(255,255,255,0.04);
+        color:#cbd5e1;
+        border:1px solid rgba(255,255,255,0.08);
+        padding:12px 18px;
+        border-radius:12px;
+        font-size:13px;
         font-weight:600;
         cursor:pointer;
+        transition:.2s;
       ">
-        Allow
+        Deny
       </button>
+
     </div>
+  </div>
+</div>
   `;
 
   document.body.appendChild(toast);
