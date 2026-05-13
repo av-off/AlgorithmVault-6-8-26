@@ -379,6 +379,8 @@ async function showDetail(id) {
   </div>`;
 
   Prism.highlightAll();
+  updateBookmarkBtn(algo.id);
+trackViewed(algo.id);
 }
 
 function shareAlgo(id, name) {
@@ -431,387 +433,401 @@ function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── Supabase / Auth ──
-const SUPABASE_URL      = 'https://rytzrtfgwgixmmoqznux.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5dHpydGZnd2dpeG1tb3F6bnV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5NzQ4MjIsImV4cCI6MjA5MzU1MDgyMn0.nMskjGomy8oqN-ADBeP8R0XllWEQfFLedhVh63DRio4';
+// ── Local Bookmark System ──
 
-const PROVIDERS = {
-  google:   true,
-  github:   true,
-  facebook: true,
-  guest:    true,
-};
-
-document.addEventListener('DOMContentLoaded', function renderProviders() {
-  if (!PROVIDERS.google)   document.querySelector('[onclick="signInWith(\'google\')"]')?.remove();
-  if (!PROVIDERS.github)   document.querySelector('[onclick="signInWith(\'github\')"]')?.remove();
-  if (!PROVIDERS.facebook) document.querySelector('[onclick="signInWith(\'facebook\')"]')?.remove();
-  if (!PROVIDERS.guest)    document.querySelector('[onclick="continueAsGuest()"]')?.remove();
-});
-
-const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-let _currentUser = null;
-let _isGuest     = false;
-let _authInitialized = false;
-
-function guestGet(key)      { try { return JSON.parse(localStorage.getItem('av_guest_' + key)) || []; } catch{ return []; } }
-function guestSet(key, val) { localStorage.setItem('av_guest_' + key, JSON.stringify(val)); }
-
-function openAuth() {
-  document.getElementById('auth-overlay').classList.add('open');
-}
-function closeAuth() {
-  document.getElementById('auth-overlay').classList.remove('open');
-}
-document.getElementById('auth-overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('auth-overlay')) closeAuth();
-});
-
-async function signInWith(provider) {
-  showAuthLoading('Redirecting to ' + provider + '...');
-  const { error } = await _sb.auth.signInWithOAuth({
-    provider,
-    options: { redirectTo: window.location.href }
-  });
-  if (error) {
-    hideAuthLoading();
-    showToast('Error: ' + error.message);
+function getBookmarks() {
+  try {
+    return JSON.parse(localStorage.getItem('av_bookmarks')) || [];
+  } catch {
+    return [];
   }
 }
 
-function continueAsGuest() {
-  _isGuest = true;
-  _currentUser = null;
-  localStorage.setItem('av_guest_mode', 'true');
-  updateNavButton();
-  refreshProfilePanel();
-  showToast('Guest mode - data saved locally');
+function setBookmarks(data) {
+  localStorage.setItem('av_bookmarks', JSON.stringify(data));
 }
 
-async function signOut() {
-  document.getElementById('auth-profile').style.display  = 'none';
-  document.getElementById('auth-buttons').style.display  = 'flex';
-  document.getElementById('auth-title').textContent = 'Welcome to AlgorithmVault';
-
-  if (!_isGuest) await _sb.auth.signOut();
-  _currentUser = null;
-  _isGuest     = false;
-  localStorage.removeItem('av_guest_mode');
-
-  closeAuth();
-  updateNavButton();
-  if (currentView === 'bookmarks') showHome();
-  showToast('Signed out');
+function hasAcceptedLocalStorage() {
+  return localStorage.getItem('av_local_confirmed') === 'true';
 }
 
-_sb.auth.onAuthStateChange(async (event, session) => {
-  _currentUser = session?.user ?? null;
-
-  if (_currentUser) {
-    _isGuest = false;
-    await ensureProfile(_currentUser);
-    closeAuth();
-    updateNavButton();
-    refreshProfilePanel();
-    updateAvatarUI();
-  } else if (_authInitialized) {
-    _isGuest = localStorage.getItem('av_guest_mode') === 'true';
-    updateNavButton();
-    updateAvatarUI();
+function askLocalStoragePermission(callback) {
+  if (hasAcceptedLocalStorage()) {
+    callback();
+    return;
   }
-});
 
-async function ensureProfile(user) {
-  const { data } = await _sb.from('profiles').select('id').eq('id', user.id).single();
-  if (!data) {
-    await _sb.from('profiles').insert({ id: user.id, bookmarks: [], viewed: [] });
-  }
-}
+  const toast = document.createElement('div');
+  toast.innerHTML = `
+    <div style="
+      position:fixed;
+      bottom:24px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.08);
+      padding:14px 16px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      z-index:99999;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+      max-width:420px;
+      width:calc(100% - 32px);
+      animation:fadeIn .2s ease;
+    ">
+      <div style="flex:1">
+        <p style="font-size:13px;font-weight:600;margin-bottom:3px;color:white">
+          Enable local bookmarks?
+        </p>
+        <p style="font-size:12px;color:#94a3b8;line-height:1.5">
+          Your bookmarks will be saved only on this device using local storage.
+        </p>
+      </div>
 
-async function getProfile() {
-  if (!_currentUser) return null;
-  const { data } = await _sb.from('profiles').select('*').eq('id', _currentUser.id).single();
-  return data;
-}
+      <button id="local-accept-btn" style="
+        background:#00e5c3;
+        color:black;
+        border:none;
+        padding:8px 12px;
+        border-radius:10px;
+        font-size:12px;
+        font-weight:600;
+        cursor:pointer;
+      ">
+        Allow
+      </button>
+    </div>
+  `;
 
-async function updateProfile(fields) {
-  if (!_currentUser) return;
-  await _sb.from('profiles').update({ ...fields, updated_at: new Date().toISOString() }).eq('id', _currentUser.id);
+  document.body.appendChild(toast);
+
+  document.getElementById('local-accept-btn').onclick = () => {
+    localStorage.setItem('av_local_confirmed', 'true');
+    toast.remove();
+    callback();
+    showToast('Local bookmarks enabled');
+  };
+
+  setTimeout(() => {
+    if (toast.parentNode) toast.remove();
+  }, 10000);
 }
 
 async function toggleBookmark(algoId) {
-  if (!_currentUser && !_isGuest) { openAuth(); return; }
+  askLocalStoragePermission(() => {
+    const bookmarks = getBookmarks();
 
-  if (_isGuest) {
-    const bm  = guestGet('bookmarks');
-    const idx = bm.indexOf(algoId);
-    if (idx > -1) bm.splice(idx, 1); else bm.push(algoId);
-    guestSet('bookmarks', bm);
+    const idx = bookmarks.indexOf(algoId);
+
+    if (idx > -1) {
+      bookmarks.splice(idx, 1);
+      showToast('Removed bookmark');
+    } else {
+      bookmarks.push(algoId);
+      showToast('Bookmarked');
+    }
+
+    setBookmarks(bookmarks);
     updateBookmarkBtn(algoId);
-    showToast(bm.includes(algoId) ? 'Bookmarked (local)' : 'Removed bookmark');
-    return;
-  }
-
-  const profile = await getProfile();
-  const bm  = profile?.bookmarks || [];
-  const idx = bm.indexOf(algoId);
-  if (idx > -1) bm.splice(idx, 1); else bm.push(algoId);
-  await updateProfile({ bookmarks: bm });
-  updateBookmarkBtn(algoId);
-  refreshProfilePanel();
-  showToast(bm.includes(algoId) ? 'Bookmarked' : 'Removed bookmark');
+  });
 }
 
 async function isBookmarked(algoId) {
-  if (_isGuest) return guestGet('bookmarks').includes(algoId);
-  if (!_currentUser) return false;
-  const p = await getProfile();
-  return (p?.bookmarks || []).includes(algoId);
+  return getBookmarks().includes(algoId);
 }
 
-async function trackViewed(algoId) {
-  if (_isGuest) {
-    const viewed = guestGet('viewed');
-    if (!viewed.includes(algoId)) { viewed.push(algoId); guestSet('viewed', viewed); }
-    return;
-  }
-  if (!_currentUser) return;
-  const p = await getProfile();
-  const viewed = p?.viewed || [];
-  if (!viewed.includes(algoId)) {
-    viewed.push(algoId);
-    await updateProfile({ viewed });
-  }
-}
-
-function showAuthLoading(msg) {
-  document.getElementById('auth-buttons').style.display  = 'none';
-  document.getElementById('auth-loading').style.display  = 'block';
-  document.getElementById('auth-loading-msg').textContent = msg || 'Signing in...';
-}
-function hideAuthLoading() {
-  document.getElementById('auth-buttons').style.display = 'flex';
-  document.getElementById('auth-loading').style.display = 'none';
-}
-
-function updateAvatarUI() {
-  const avatarImg      = document.getElementById('profileAvatar');
-  const avatarFallback = document.getElementById('avatarFallback');
-  if (!avatarImg) return;
-  const avatarUrl = _currentUser?.user_metadata?.avatar_url;
-  if (avatarUrl) {
-    avatarImg.src = avatarUrl;
-    avatarImg.style.display = 'block';
-    if (avatarFallback) avatarFallback.style.display = 'none';
-  } else {
-    avatarImg.style.display = 'none';
-    if (avatarFallback) avatarFallback.style.display = 'block';
-  }
-}
-
-function updateNavButton() {
-  const btn = document.getElementById('user-nav-btn');
-  if (!btn) return;
-  if (_currentUser) {
-    const name   = _currentUser.user_metadata?.name || _currentUser.email?.split('@')[0] || 'User';
-    const avatar = _currentUser.user_metadata?.avatar_url;
-    btn.innerHTML = avatar
-      ? `<img src="${avatar}" style="width:22px;height:22px;border-radius:50%;" /> ${name.split(' ')[0]}`
-      : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${name.split(' ')[0]}`;
-  } else if (_isGuest) {
-    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Guest`;
-  } else {
-    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign In`;
-  }
-}
-
-async function refreshProfilePanel() {
-  if (!_currentUser && !_isGuest) return;
-
-  const profileDiv = document.getElementById('auth-profile');
-  const buttonsDiv = document.getElementById('auth-buttons');
-  buttonsDiv.style.display = 'none';
-  profileDiv.style.display = 'block';
-  document.getElementById('auth-title').textContent = 'Your Profile';
-
-  let bookmarks = [], viewed = [];
-
-  if (_isGuest) {
-    bookmarks = guestGet('bookmarks');
-    viewed    = guestGet('viewed');
-    document.getElementById('auth-name').textContent  = 'Guest User';
-    document.getElementById('auth-email').textContent = 'Data saved locally';
-    document.getElementById('auth-avatar').style.display = 'none';
-    document.getElementById('auth-initials').style.display = 'none';
-  } else {
-    const p    = await getProfile();
-    bookmarks  = p?.bookmarks || [];
-    viewed     = p?.viewed    || [];
-    const meta = _currentUser.user_metadata || {};
-    const name = meta.name || meta.full_name || _currentUser.email?.split('@')[0] || 'User';
-    const avatar = meta.avatar_url || meta.picture || '';
-
-    document.getElementById('auth-name').textContent  = name;
-    document.getElementById('auth-email').textContent = _currentUser.email || '';
-
-    const avatarEl  = document.getElementById('auth-avatar');
-    const initialEl = document.getElementById('auth-initials');
-    if (avatar) {
-      avatarEl.src = avatar;
-      avatarEl.style.display   = 'block';
-      initialEl.style.display  = 'none';
-    } else {
-      avatarEl.style.display   = 'none';
-      initialEl.style.display  = 'flex';
-      initialEl.textContent    = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-    }
-  }
-
-  document.getElementById('stat-bookmarks').textContent = bookmarks.length;
-  document.getElementById('stat-viewed').textContent    = viewed.length;
-}
-
-async function updateBookmarkBtn(algoId) {
-  const btn = document.getElementById('bm-btn-' + algoId);
-  if (!btn) return;
-  const active = await isBookmarked(algoId);
-  btn.className = 'bm-btn' + (active ? ' active' : '');
-  btn.innerHTML = active
-    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Saved`
-    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Bookmark`;
-}
-
-(function injectNavButtons() {
-  const nav = document.querySelector('nav .flex.items-center.gap-3');
-  if (!nav) return;
-
-  const bmBtn = document.createElement('button');
-  bmBtn.id = 'bm-nav-btn';
-  bmBtn.className = 'btn-ghost';
-  bmBtn.style.cssText = 'font-size:0.82rem;padding:6px 12px;display:flex;align-items:center;gap:6px;';
-  bmBtn.setAttribute('onclick', 'handleBookmarksNav()');
-  bmBtn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span class="hidden sm:inline">Bookmarks</span>`;
-  nav.prepend(bmBtn);
-
-  const userBtn = document.createElement('button');
-  userBtn.id = 'user-nav-btn';
-  userBtn.setAttribute('onclick', 'handleNavAuth()');
-  userBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign In`;
-  nav.prepend(userBtn);
-})();
-
-function handleNavAuth() {
-  openAuth();
-  if (_currentUser || _isGuest) {
-    refreshProfilePanel();
-  }
-}
 
 function handleBookmarksNav() {
-  if (!_currentUser && !_isGuest) { openAuth(); return; }
   showBookmarks();
 }
-
-const _origShowDetail = window.showDetail;
-window.showDetail = async function(id) {
-  await _origShowDetail(id);
-  trackViewed(id);
-  const placeholder = document.getElementById('bm-placeholder-' + id);
-  if (placeholder) {
-    const bmBtn = document.createElement('button');
-    bmBtn.id = 'bm-btn-' + id;
-    bmBtn.className = 'bm-btn';
-    bmBtn.setAttribute('onclick', `toggleBookmark('${id}')`);
-    bmBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> Bookmark`;
-    placeholder.appendChild(bmBtn);
-    updateBookmarkBtn(id);
-  }
-};
-
-(async function initAuth() {
-  if (localStorage.getItem('av_guest_mode') === 'true') {
-    _isGuest = true;
-    updateNavButton();
-  }
-
-  _authInitialized = true;
-
-  const { data: { session } } = await _sb.auth.getSession();
-  if (session) {
-    _currentUser = session.user;
-    _isGuest     = false;
-    await ensureProfile(_currentUser);
-    updateNavButton();
-  }
-})();
-
 async function showBookmarks() {
-  if (!_currentUser && !_isGuest) { openAuth(); return; }
   currentView = 'bookmarks';
 
-  let bmIds = [];
-  if (_isGuest) {
-    bmIds = guestGet('bookmarks');
-  } else {
-    const p = await getProfile();
-    bmIds = p?.bookmarks || [];
-  }
+  const bmIds = getBookmarks();
 
-  const bmAlgos = algorithms.filter(a => bmIds.includes(a.id));
+  const bmAlgos = bmIds
+    .map(id => algorithms.find(a => a.id === id))
+    .filter(Boolean);
 
   document.getElementById('main').innerHTML = `
   <div class="page">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
       <div class="flex items-center justify-between mb-8">
         <div>
           <button onclick="showHome()" class="flex items-center gap-2 text-sm mb-3 group" style="color:var(--txt-muted)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back to Vault
+            ← Back
           </button>
-          <span class="section-label mb-2 inline-block">Your Collection</span>
-          <h1 class="font-display text-3xl font-800">Bookmarks</h1>
+
+          <span class="section-label mb-2 inline-block">
+            Saved Locally
+          </span>
+
+          <h1 class="font-display text-3xl font-800">
+            Bookmarks
+          </h1>
         </div>
-        ${bmAlgos.length > 0 ? `<span class="badge" style="font-size:0.8rem;padding:4px 14px;">${bmAlgos.length} saved</span>` : ''}
+
+        ${
+          bmAlgos.length
+            ? `<span class="badge">${bmAlgos.length} saved</span>`
+            : ''
+        }
       </div>
 
-      ${bmAlgos.length === 0 ? `
-      <div style="text-align:center;padding:5rem 2rem;background:var(--glass);border:1px solid var(--border);border-radius:20px;">
-        <div style="width:56px;height:56px;border-radius:14px;background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3 class="font-display text-xl font-600 mb-2">No bookmarks yet</h3>
-        <p style="color:var(--txt-muted);font-size:0.9rem;margin-bottom:1.5rem;">Open any algorithm and hit the Bookmark button to save it here.</p>
-        <button onclick="showHome()" class="btn-primary">Browse Algorithms</button>
-      </div>` : `
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        ${bmAlgos.map((a,i) => `
-        <div class="algo-card" style="animation-delay:${i*0.04}s;position:relative;">
-          <button onclick="event.stopPropagation();removeBookmarkFromPage('${a.id}')" title="Remove bookmark" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:7px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7ea0;transition:all 0.15s ease;"
-            onmouseover="this.style.color='#ff6b6b';this.style.borderColor='rgba(255,107,107,0.3)'"
-            onmouseout="this.style.color='#6b7ea0';this.style.borderColor='rgba(255,255,255,0.1)'">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-          </button>
-          <div onclick="showDetail('${a.id}')" style="cursor:pointer;">
-            <div class="flex items-start justify-between mb-3" style="padding-right:1.5rem;">
-              <div class="w-9 h-9 flex items-center justify-center" style="background:rgba(0,229,195,0.08);border:1px solid rgba(0,229,195,0.15);border-radius:10px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <span class="font-mono text-xs" style="color:var(--txt-muted)">${a.time}</span>
-            </div>
-            <h3 class="font-display font-600 text-sm mb-1">${a.name}</h3>
-            <p class="text-xs leading-relaxed mb-3" style="color:var(--txt-muted)">${a.hint}</p>
-            <div class="flex flex-wrap gap-1.5">
-              ${(a.tags||[]).slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}
-            </div>
+      ${
+        bmAlgos.length === 0
+          ? `
+          <div style="
+            text-align:center;
+            padding:5rem 2rem;
+            background:var(--glass);
+            border:1px solid var(--border);
+            border-radius:20px;
+          ">
+            <h3 class="font-display text-xl font-600 mb-2">
+              No bookmarks yet
+            </h3>
+
+            <p style="color:var(--txt-muted);font-size:0.9rem;">
+              Saved bookmarks will appear here.
+            </p>
           </div>
-        </div>`).join('')}
-      </div>`}
+          `
+          : `
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+            ${bmAlgos.map((a, i) => `
+              <div class="algo-card"
+                   style="animation-delay:${i * 0.03}s"
+                   onclick="showDetail('${a.id}')">
+
+                <div class="flex items-start justify-between mb-3">
+
+                  <div class="w-9 h-9 flex items-center justify-center"
+                    style="
+                      background:rgba(0,229,195,0.08);
+                      border:1px solid rgba(0,229,195,0.15);
+                      border-radius:10px;
+                    ">
+
+                    <svg width="14" height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-width="2.5">
+
+                      <polyline points="16 18 22 12 16 6"/>
+                      <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+
+                  </div>
+
+                  <span class="font-mono text-xs"
+                    style="color:var(--txt-muted)">
+                    ${a.time || 'O(?)'}
+                  </span>
+
+                </div>
+
+                <h3 class="font-display font-600 text-sm mb-1">
+                  ${a.name}
+                </h3>
+
+                <p class="text-xs leading-relaxed mb-3"
+                  style="color:var(--txt-muted)">
+                  ${a.hint}
+                </p>
+
+                <div class="flex flex-wrap gap-1.5">
+
+                  ${(a.tags || []).slice(0,3).map(t => `
+                    <span class="badge">${t}</span>
+                  `).join('')}
+
+                </div>
+
+              </div>
+            `).join('')}
+
+          </div>
+          `
+      }
+
     </div>
   </div>`;
 }
+async function updateBookmarkBtn(algoId) {
+  const wrap = document.getElementById(`bm-placeholder-${algoId}`);
+  if (!wrap) return;
 
+  const saved = await isBookmarked(algoId);
+
+  wrap.innerHTML = `
+    <button
+      onclick="toggleBookmark('${algoId}')"
+      class="btn-ghost flex items-center gap-2"
+      style="
+        font-size:0.82rem;
+        padding:8px 14px;
+        border-color:${saved ? 'rgba(0,229,195,0.35)' : 'var(--border)'};
+        background:${saved ? 'rgba(0,229,195,0.08)' : 'transparent'};
+        color:${saved ? '#00e5c3' : 'inherit'};
+      "
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24"
+        fill="${saved ? '#00e5c3' : 'none'}"
+        stroke="currentColor"
+        stroke-width="2">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+
+      ${saved ? 'Saved' : 'Bookmark'}
+    </button>
+  `;
+}
 async function removeBookmarkFromPage(algoId) {
   await toggleBookmark(algoId);
   showBookmarks();
+}
+
+async function showHistory() {
+  currentView = 'history';
+
+  let viewedIds = [];
+
+  try {
+    viewedIds = JSON.parse(localStorage.getItem('av_viewed')) || [];
+  } catch {}
+
+  const viewedAlgos = viewedIds
+    .map(id => algorithms.find(a => a.id === id))
+    .filter(Boolean);
+
+  document.getElementById('main').innerHTML = `
+  <div class="page">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <button onclick="showHome()" class="flex items-center gap-2 text-sm mb-3 group" style="color:var(--txt-muted)">
+            ← Back
+          </button>
+
+          <span class="section-label mb-2 inline-block">Recently Viewed</span>
+          <h1 class="font-display text-3xl font-800">History</h1>
+        </div>
+
+        ${
+          viewedAlgos.length
+            ? `<span class="badge">${viewedAlgos.length} viewed</span>`
+            : ''
+        }
+      </div>
+
+      ${
+        viewedAlgos.length === 0
+          ? `
+          <div style="
+            text-align:center;
+            padding:5rem 2rem;
+            background:var(--glass);
+            border:1px solid var(--border);
+            border-radius:20px;
+          ">
+            <h3 class="font-display text-xl font-600 mb-2">
+              No history yet
+            </h3>
+
+            <p style="color:var(--txt-muted);font-size:0.9rem;">
+              Viewed algorithms will appear here.
+            </p>
+          </div>
+          `
+          : `
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            ${viewedAlgos.map((a, i) => `
+              <div class="algo-card"
+                   style="animation-delay:${i * 0.03}s"
+                   onclick="showDetail('${a.id}')">
+
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-9 h-9 flex items-center justify-center"
+                    style="
+                      background:rgba(0,229,195,0.08);
+                      border:1px solid rgba(0,229,195,0.15);
+                      border-radius:10px;
+                    ">
+
+                    <svg width="14" height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-width="2.5">
+
+                      <polyline points="16 18 22 12 16 6"/>
+                      <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                  </div>
+
+                  <span class="font-mono text-xs"
+                    style="color:var(--txt-muted)">
+                    ${a.time || 'O(?)'}
+                  </span>
+                </div>
+
+                <h3 class="font-display font-600 text-sm mb-1">
+                  ${a.name}
+                </h3>
+
+                <p class="text-xs leading-relaxed mb-3"
+                  style="color:var(--txt-muted)">
+                  ${a.hint}
+                </p>
+
+                <div class="flex flex-wrap gap-1.5">
+                  ${(a.tags || []).slice(0,3).map(t => `
+                    <span class="badge">${t}</span>
+                  `).join('')}
+                </div>
+
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="text-center mt-10">
+            <button onclick="clearHistory()" class="btn-ghost">
+              Clear History
+            </button>
+          </div>
+          `
+      }
+
+    </div>
+  </div>`;
+}
+function clearHistory() {
+  localStorage.removeItem('av_viewed');
+  showToast('History cleared');
+  showHistory();
+}
+async function trackViewed(algoId) {
+  let viewed = [];
+
+  try {
+    viewed = JSON.parse(localStorage.getItem('av_viewed')) || [];
+  } catch {}
+
+  // remove old occurrence
+  viewed = viewed.filter(id => id !== algoId);
+
+  // add newest at top
+  viewed.unshift(algoId);
+
+  // optional limit
+  viewed = viewed.slice(0, 50);
+
+  localStorage.setItem('av_viewed', JSON.stringify(viewed));
 }
