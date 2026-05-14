@@ -362,6 +362,39 @@ async function showDetail(id) {
         <p class="section-label mb-4">Explanation</p>
         <div class="md-content">${readmeHtml}</div>
       </div>` : ''}
+       ${algo.videoId ? `
+        <div class="glass rounded-2xl p-4 mb-8">
+          <div class="flex items-center justify-between mb-4">
+            <p class="section-label">Video Explanation</p>
+            
+            <a href="https://youtube.com/watch?v=${algo.videoId}"
+               target="_blank"
+               class="btn-ghost text-xs px-3 py-1">
+              Open YouTube
+            </a>
+          </div>
+        
+          <div class="relative overflow-hidden rounded-2xl"
+               style="
+                 padding-top:56.25%;
+                 border:1px solid var(--border);
+                 background:#000;
+               ">
+        
+            <iframe
+  class="absolute top-0 left-0 w-full h-full"
+  src="https://www.youtube.com/embed/${algo.videoId}?rel=0"
+  title="${algo.name} Tutorial"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+  loading="lazy">
+</iframe>
+        
+          </div>
+        </div>
+        ` : ''}
       <div class="glass rounded-2xl overflow-hidden">
         <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid var(--border)">
           <p class="section-label">Source Code</p>
