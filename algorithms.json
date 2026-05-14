@@ -444,5 +444,6068 @@
     "files": {
       "python": "algorithms/gcd/gcd.py"
     }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
+  }
+][
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
+    }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
+  }
+][
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
+    }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
+  }
+][
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
+    }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
+  }
+][
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
+    }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
+  }
+][
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "hint": "Efficient O(log n) searching in sorted arrays",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["search", "divide-conquer"],
+    "files": {
+      "python": "algorithms/binary-search/binary.py",
+      "cpp": "algorithms/binary-search/binary.cpp",
+      "java": "algorithms/binary-search/binary.java"
+    }
+  },
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "hint": "Simple comparison-based sorting algorithm",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bubble-sort/bubble.py",
+      "cpp": "algorithms/bubble-sort/bubble.cpp",
+      "java": "algorithms/bubble-sort/bubble.java"
+    }
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "hint": "Fast divide-and-conquer sorting with pivot",
+    "time": "O(n log n)",
+    "space": "O(log n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quick-sort/quick.py",
+      "cpp": "algorithms/quick-sort/quick.cpp",
+      "java": "algorithms/quick-sort/quick.java"
+    }
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "hint": "Stable divide-and-conquer O(n log n) sorting",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["sort", "divide-conquer"],
+    "files": {
+      "python": "algorithms/merge-sort/merge.py"
+    }
+  },
+  {
+    "id": "linear-search",
+    "name": "Linear Search",
+    "hint": "Simple sequential scan through a collection",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/linear-search/linear.py"
+    }
+  },
+  {
+    "id": "insertion-sort",
+    "name": "Insertion Sort",
+    "hint": "Build sorted array one element at a time",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/insertion-sort/insertion.py"
+    }
+  },
+  {
+    "id": "selection-sort",
+    "name": "Selection Sort",
+    "hint": "Select minimum and place in sorted position",
+    "time": "O(n²)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/selection-sort/selection.py"
+    }
+  },
+  {
+    "id": "dfs",
+    "name": "Depth-First Search",
+    "hint": "Explore graph as deep as possible before backtracking",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/dfs/dfs.py"
+    }
+  },
+  {
+    "id": "bfs",
+    "name": "Breadth-First Search",
+    "hint": "Explore graph level by level using a queue",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph", "traversal"],
+    "files": {
+      "python": "algorithms/bfs/bfs.py"
+    }
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "hint": "Shortest path in weighted graphs",
+    "time": "O((V+E) log V)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/dijkstra/dijkstra.py"
+    }
+  },
+  {
+    "id": "heap-sort",
+    "name": "Heap Sort",
+    "hint": "Sorting using binary heap structure",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["sort", "heap"],
+    "files": {
+      "python": "algorithms/heap-sort/heap.py"
+    }
+  },
+  {
+    "id": "counting-sort",
+    "name": "Counting Sort",
+    "hint": "Non-comparison sort for integers",
+    "time": "O(n + k)",
+    "space": "O(k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/counting-sort/counting.py"
+    }
+  },
+  {
+    "id": "radix-sort",
+    "name": "Radix Sort",
+    "hint": "Digit-based non-comparison sorting",
+    "time": "O(nk)",
+    "space": "O(n + k)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/radix-sort/radix.py"
+    }
+  },
+  {
+    "id": "bucket-sort",
+    "name": "Bucket Sort",
+    "hint": "Distribute elements into buckets",
+    "time": "O(n + k)",
+    "space": "O(n)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/bucket-sort/bucket.py"
+    }
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "hint": "Linear ordering of DAG nodes",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/topological-sort/topo.py"
+    }
+  },
+  {
+    "id": "bellman-ford",
+    "name": "Bellman-Ford",
+    "hint": "Shortest path with negative weights",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/bellman-ford/bellman.py"
+    }
+  },
+  {
+    "id": "floyd-warshall",
+    "name": "Floyd-Warshall",
+    "hint": "All-pairs shortest paths",
+    "time": "O(V³)",
+    "space": "O(V²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/floyd-warshall/floyd.py"
+    }
+  },
+  {
+    "id": "kruskal",
+    "name": "Kruskal's Algorithm",
+    "hint": "Minimum spanning tree using union-find",
+    "time": "O(E log E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kruskal/kruskal.py"
+    }
+  },
+  {
+    "id": "prim",
+    "name": "Prim's Algorithm",
+    "hint": "Greedy MST algorithm",
+    "time": "O(E log V)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/prim/prim.py"
+    }
+  },
+  {
+    "id": "union-find",
+    "name": "Union Find",
+    "hint": "Disjoint set data structure",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/union-find/uf.py"
+    }
+  },
+  {
+    "id": "knapsack",
+    "name": "0/1 Knapsack",
+    "hint": "Optimize value under weight constraint",
+    "time": "O(nW)",
+    "space": "O(nW)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/knapsack/knapsack.py"
+    }
+  },
+  {
+    "id": "longest-common-subsequence",
+    "name": "Longest Common Subsequence",
+    "hint": "Find longest shared subsequence",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/lcs/lcs.py"
+    }
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "name": "Longest Increasing Subsequence",
+    "hint": "Max increasing sequence in array",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/lis/lis.py"
+    }
+  },
+  {
+    "id": "edit-distance",
+    "name": "Edit Distance",
+    "hint": "Minimum operations to transform strings",
+    "time": "O(nm)",
+    "space": "O(nm)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/edit-distance/edit.py"
+    }
+  },
+  {
+    "id": "kmp",
+    "name": "KMP Algorithm",
+    "hint": "Efficient substring search",
+    "time": "O(n + m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/kmp/kmp.py"
+    }
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "hint": "String search using hashing",
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/rabin-karp/rk.py"
+    }
+  },
+  {
+    "id": "z-algorithm",
+    "name": "Z Algorithm",
+    "hint": "Pattern matching using Z-array",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/z-algorithm/z.py"
+    }
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "hint": "Efficient subarray processing",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/sliding-window/sw.py"
+    }
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "hint": "Solve problems with dual indices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/two-pointers/tp.py"
+    }
+  },
+  {
+    "id": "prefix-sum",
+    "name": "Prefix Sum",
+    "hint": "Efficient range sum queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array"],
+    "files": {
+      "python": "algorithms/prefix-sum/prefix.py"
+    }
+  },
+  {
+    "id": "segment-tree",
+    "name": "Segment Tree",
+    "hint": "Range queries and updates",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/segment-tree/segment.py"
+    }
+  },
+  {
+    "id": "fenwick-tree",
+    "name": "Fenwick Tree",
+    "hint": "Efficient prefix sums",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/fenwick/fenwick.py"
+    }
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "hint": "Prefix tree for fast lookup",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "string"],
+    "files": {
+      "python": "algorithms/trie/trie.py"
+    }
+  },
+  {
+    "id": "binary-tree-traversal",
+    "name": "Binary Tree Traversal",
+    "hint": "Inorder, preorder, postorder traversal",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/tree-traversal/tree.py"
+    }
+  },
+  {
+    "id": "lowest-common-ancestor",
+    "name": "Lowest Common Ancestor",
+    "hint": "Find LCA in tree",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/lca/lca.py"
+    }
+  },
+  {
+    "id": "binary-search-tree",
+    "name": "Binary Search Tree",
+    "hint": "Ordered tree structure",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/bst/bst.py"
+    }
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "hint": "Explore all possibilities recursively",
+    "time": "O(2ⁿ)",
+    "space": "O(n)",
+    "tags": ["recursion"],
+    "files": {
+      "python": "algorithms/backtracking/backtrack.py"
+    }
+  },
+  {
+    "id": "n-queens",
+    "name": "N-Queens",
+    "hint": "Place queens without conflict",
+    "time": "O(n!)",
+    "space": "O(n)",
+    "tags": ["backtracking"],
+    "files": {
+      "python": "algorithms/nqueens/nq.py"
+    }
+  },
+  {
+    "id": "sieve-of-eratosthenes",
+    "name": "Sieve of Eratosthenes",
+    "hint": "Find primes efficiently",
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/sieve/sieve.py"
+    }
+  },
+  {
+    "id": "euclidean-gcd",
+    "name": "Euclidean Algorithm",
+    "hint": "Compute greatest common divisor",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/gcd/gcd.py"
+    }
+  },
+  {
+    "id": "avl-tree",
+    "name": "AVL Tree",
+    "hint": "Self-balancing binary search tree",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/avl-tree/avl.py"
+    }
+  },
+  {
+    "id": "red-black-tree",
+    "name": "Red-Black Tree",
+    "hint": "Balanced BST with color properties",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/red-black-tree/rbt.py"
+    }
+  },
+  {
+    "id": "a-star",
+    "name": "A* Search",
+    "hint": "Heuristic-guided shortest path search",
+    "time": "O(E)",
+    "space": "O(V)",
+    "tags": ["graph", "shortest-path"],
+    "files": {
+      "python": "algorithms/a-star/astar.py"
+    }
+  },
+  {
+    "id": "coin-change",
+    "name": "Coin Change",
+    "hint": "Minimum coins to make amount",
+    "time": "O(nW)",
+    "space": "O(W)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/coin-change/coin.py"
+    }
+  },
+  {
+    "id": "matrix-chain-multiplication",
+    "name": "Matrix Chain Multiplication",
+    "hint": "Optimal parenthesization of matrix product",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/mcm/mcm.py"
+    }
+  },
+  {
+    "id": "rod-cutting",
+    "name": "Rod Cutting",
+    "hint": "Maximize revenue by cutting rod optimally",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp"],
+    "files": {
+      "python": "algorithms/rod-cutting/rod.py"
+    }
+  },
+  {
+    "id": "word-break",
+    "name": "Word Break",
+    "hint": "Segment string using dictionary words",
+    "time": "O(n²)",
+    "space": "O(n)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/word-break/wb.py"
+    }
+  },
+  {
+    "id": "palindrome-partitioning",
+    "name": "Palindrome Partitioning",
+    "hint": "Min cuts to partition string into palindromes",
+    "time": "O(n²)",
+    "space": "O(n²)",
+    "tags": ["dp", "string"],
+    "files": {
+      "python": "algorithms/palindrome-partition/pp.py"
+    }
+  },
+  {
+    "id": "max-subarray",
+    "name": "Kadane's Algorithm",
+    "hint": "Find maximum sum subarray",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array"],
+    "files": {
+      "python": "algorithms/max-subarray/kadane.py"
+    }
+  },
+  {
+    "id": "stock-buy-sell",
+    "name": "Stock Buy and Sell",
+    "hint": "Maximize profit from stock prices",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["dp", "array", "greedy"],
+    "files": {
+      "python": "algorithms/stock/stock.py"
+    }
+  },
+  {
+    "id": "activity-selection",
+    "name": "Activity Selection",
+    "hint": "Select maximum non-overlapping activities",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/activity-selection/activity.py"
+    }
+  },
+  {
+    "id": "huffman-coding",
+    "name": "Huffman Coding",
+    "hint": "Optimal prefix-free compression encoding",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy", "tree"],
+    "files": {
+      "python": "algorithms/huffman/huffman.py"
+    }
+  },
+  {
+    "id": "fractional-knapsack",
+    "name": "Fractional Knapsack",
+    "hint": "Greedy value maximization with fractions",
+    "time": "O(n log n)",
+    "space": "O(1)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/fractional-knapsack/fk.py"
+    }
+  },
+  {
+    "id": "job-sequencing",
+    "name": "Job Sequencing",
+    "hint": "Schedule jobs to maximize profit within deadlines",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["greedy"],
+    "files": {
+      "python": "algorithms/job-sequencing/jobs.py"
+    }
+  },
+  {
+    "id": "tarjan-scc",
+    "name": "Tarjan's SCC",
+    "hint": "Find strongly connected components",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/tarjan/tarjan.py"
+    }
+  },
+  {
+    "id": "kosaraju-scc",
+    "name": "Kosaraju's Algorithm",
+    "hint": "SCC via two-pass DFS",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/kosaraju/kosaraju.py"
+    }
+  },
+  {
+    "id": "articulation-points",
+    "name": "Articulation Points",
+    "hint": "Find critical vertices in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/articulation/ap.py"
+    }
+  },
+  {
+    "id": "bridges",
+    "name": "Bridge Finding",
+    "hint": "Find critical edges in a graph",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bridges/bridges.py"
+    }
+  },
+  {
+    "id": "ford-fulkerson",
+    "name": "Ford-Fulkerson",
+    "hint": "Maximum flow in a network",
+    "time": "O(E * max_flow)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/ford-fulkerson/ff.py"
+    }
+  },
+  {
+    "id": "edmonds-karp",
+    "name": "Edmonds-Karp",
+    "hint": "BFS-based max flow algorithm",
+    "time": "O(VE²)",
+    "space": "O(V)",
+    "tags": ["graph", "flow"],
+    "files": {
+      "python": "algorithms/edmonds-karp/ek.py"
+    }
+  },
+  {
+    "id": "bipartite-matching",
+    "name": "Bipartite Matching",
+    "hint": "Maximum matching in bipartite graph",
+    "time": "O(VE)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/bipartite-matching/bm.py"
+    }
+  },
+  {
+    "id": "cycle-detection",
+    "name": "Cycle Detection",
+    "hint": "Detect cycles in directed and undirected graphs",
+    "time": "O(V+E)",
+    "space": "O(V)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/cycle-detection/cycle.py"
+    }
+  },
+  {
+    "id": "floyds-tortoise-hare",
+    "name": "Floyd's Cycle Detection",
+    "hint": "Detect cycle in linked list with two pointers",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["linked-list"],
+    "files": {
+      "python": "algorithms/floyds/floyds.py"
+    }
+  },
+  {
+    "id": "manacher",
+    "name": "Manacher's Algorithm",
+    "hint": "Find all palindromic substrings in linear time",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/manacher/manacher.py"
+    }
+  },
+  {
+    "id": "aho-corasick",
+    "name": "Aho-Corasick",
+    "hint": "Multi-pattern string matching",
+    "time": "O(n + m + z)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/aho-corasick/ac.py"
+    }
+  },
+  {
+    "id": "suffix-array",
+    "name": "Suffix Array",
+    "hint": "Sorted array of all suffixes",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-array/sa.py"
+    }
+  },
+  {
+    "id": "suffix-tree",
+    "name": "Suffix Tree",
+    "hint": "Compressed trie of all suffixes",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["string", "data-structure"],
+    "files": {
+      "python": "algorithms/suffix-tree/st.py"
+    }
+  },
+  {
+    "id": "sparse-table",
+    "name": "Sparse Table",
+    "hint": "O(1) range minimum queries after preprocessing",
+    "time": "O(1) query / O(n log n) build",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/sparse-table/sparse.py"
+    }
+  },
+  {
+    "id": "disjoint-set-union",
+    "name": "DSU with Path Compression",
+    "hint": "Union-Find with rank and path compression",
+    "time": "O(α(n))",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/dsu/dsu.py"
+    }
+  },
+  {
+    "id": "mo-algorithm",
+    "name": "Mo's Algorithm",
+    "hint": "Offline range queries in optimal order",
+    "time": "O((n + q) √n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/mo/mo.py"
+    }
+  },
+  {
+    "id": "convex-hull",
+    "name": "Convex Hull",
+    "hint": "Smallest convex polygon enclosing points",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/convex-hull/hull.py"
+    }
+  },
+  {
+    "id": "line-sweep",
+    "name": "Line Sweep",
+    "hint": "Solve geometric problems by sweeping a line",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["geometry"],
+    "files": {
+      "python": "algorithms/line-sweep/sweep.py"
+    }
+  },
+  {
+    "id": "fast-exponentiation",
+    "name": "Fast Exponentiation",
+    "hint": "Compute aⁿ in logarithmic time",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fast-exp/fastexp.py"
+    }
+  },
+  {
+    "id": "extended-euclidean",
+    "name": "Extended Euclidean Algorithm",
+    "hint": "Find coefficients for Bézout's identity",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/extended-gcd/exgcd.py"
+    }
+  },
+  {
+    "id": "modular-inverse",
+    "name": "Modular Inverse",
+    "hint": "Find multiplicative inverse under modulo",
+    "time": "O(log n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/mod-inverse/modinv.py"
+    }
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "Chinese Remainder Theorem",
+    "hint": "Solve system of modular equations",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/crt/crt.py"
+    }
+  },
+  {
+    "id": "miller-rabin",
+    "name": "Miller-Rabin Primality Test",
+    "hint": "Probabilistic prime checking",
+    "time": "O(k log² n)",
+    "space": "O(1)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/miller-rabin/mr.py"
+    }
+  },
+  {
+    "id": "matrix-exponentiation",
+    "name": "Matrix Exponentiation",
+    "hint": "Compute matrix power for recurrences",
+    "time": "O(m³ log n)",
+    "space": "O(m²)",
+    "tags": ["math", "dp"],
+    "files": {
+      "python": "algorithms/matrix-exp/matexp.py"
+    }
+  },
+  {
+    "id": "fast-fourier-transform",
+    "name": "Fast Fourier Transform",
+    "hint": "Efficient polynomial multiplication",
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/fft/fft.py"
+    }
+  },
+  {
+    "id": "number-theory-sieve",
+    "name": "Linear Sieve",
+    "hint": "Compute smallest prime factors efficiently",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["math"],
+    "files": {
+      "python": "algorithms/linear-sieve/lsieve.py"
+    }
+  },
+  {
+    "id": "sqrt-decomposition",
+    "name": "Square Root Decomposition",
+    "hint": "Block-based range query optimization",
+    "time": "O(√n)",
+    "space": "O(n)",
+    "tags": ["data-structure", "array"],
+    "files": {
+      "python": "algorithms/sqrt-decomp/sqrt.py"
+    }
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "name": "Heavy-Light Decomposition",
+    "hint": "Path queries on trees using chains",
+    "time": "O(log² n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/hld/hld.py"
+    }
+  },
+  {
+    "id": "centroid-decomposition",
+    "name": "Centroid Decomposition",
+    "hint": "Divide tree by centroids for path queries",
+    "time": "O(n log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/centroid/centroid.py"
+    }
+  },
+  {
+    "id": "euler-tour",
+    "name": "Euler Tour",
+    "hint": "Flatten tree into array for range queries",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/euler-tour/euler.py"
+    }
+  },
+  {
+    "id": "binary-lifting",
+    "name": "Binary Lifting",
+    "hint": "Fast ancestor queries and LCA in O(log n)",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["tree"],
+    "files": {
+      "python": "algorithms/binary-lifting/lifting.py"
+    }
+  },
+  {
+    "id": "treap",
+    "name": "Treap",
+    "hint": "Randomized BST with heap property",
+    "time": "O(log n)",
+    "space": "O(n)",
+    "tags": ["tree", "data-structure"],
+    "files": {
+      "python": "algorithms/treap/treap.py"
+    }
+  },
+  {
+    "id": "skip-list",
+    "name": "Skip List",
+    "hint": "Probabilistic layered linked list for fast search",
+    "time": "O(log n)",
+    "space": "O(n log n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/skip-list/skiplist.py"
+    }
+  },
+  {
+    "id": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "hint": "Stack maintaining increasing or decreasing order",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-stack/mono.py"
+    }
+  },
+  {
+    "id": "monotonic-queue",
+    "name": "Monotonic Queue",
+    "hint": "Deque for sliding window min/max",
+    "time": "O(n)",
+    "space": "O(n)",
+    "tags": ["array", "data-structure"],
+    "files": {
+      "python": "algorithms/monotonic-queue/monoq.py"
+    }
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "Meet in the Middle",
+    "hint": "Split problem in half to reduce complexity",
+    "time": "O(2^(n/2))",
+    "space": "O(2^(n/2))",
+    "tags": ["divide-conquer"],
+    "files": {
+      "python": "algorithms/meet-middle/mitm.py"
+    }
+  },
+  {
+    "id": "randomized-quickselect",
+    "name": "Quickselect",
+    "hint": "Find k-th smallest element in average O(n)",
+    "time": "O(n)",
+    "space": "O(1)",
+    "tags": ["array", "divide-conquer"],
+    "files": {
+      "python": "algorithms/quickselect/qs.py"
+    }
+  },
+  {
+    "id": "reservoir-sampling",
+    "name": "Reservoir Sampling",
+    "hint": "Random sampling from unknown-size stream",
+    "time": "O(n)",
+    "space": "O(k)",
+    "tags": ["randomized"],
+    "files": {
+      "python": "algorithms/reservoir/reservoir.py"
+    }
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom Filter",
+    "hint": "Probabilistic membership data structure",
+    "time": "O(k)",
+    "space": "O(m)",
+    "tags": ["data-structure", "randomized"],
+    "files": {
+      "python": "algorithms/bloom-filter/bloom.py"
+    }
+  },
+  {
+    "id": "lru-cache",
+    "name": "LRU Cache",
+    "hint": "Least Recently Used cache with O(1) ops",
+    "time": "O(1)",
+    "space": "O(n)",
+    "tags": ["data-structure"],
+    "files": {
+      "python": "algorithms/lru-cache/lru.py"
+    }
+  },
+  {
+    "id": "substring-search-bm",
+    "name": "Boyer-Moore",
+    "hint": "Fast string matching with bad character heuristic",
+    "time": "O(n/m)",
+    "space": "O(m)",
+    "tags": ["string"],
+    "files": {
+      "python": "algorithms/boyer-moore/bm.py"
+    }
+  },
+  {
+    "id": "hungarian-algorithm",
+    "name": "Hungarian Algorithm",
+    "hint": "Optimal assignment problem solver",
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "tags": ["graph"],
+    "files": {
+      "python": "algorithms/hungarian/hungarian.py"
+    }
+  },
+  {
+    "id": "simulated-annealing",
+    "name": "Simulated Annealing",
+    "hint": "Probabilistic optimization for hard problems",
+    "time": "O(iterations)",
+    "space": "O(1)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/simulated-annealing/sa.py"
+    }
+  },
+  {
+    "id": "genetic-algorithm",
+    "name": "Genetic Algorithm",
+    "hint": "Evolutionary search for optimization",
+    "time": "O(g * p)",
+    "space": "O(p)",
+    "tags": ["optimization"],
+    "files": {
+      "python": "algorithms/genetic/genetic.py"
+    }
   }
 ]
