@@ -1,7 +1,5 @@
 ## Binary Search
 
-[Youtube Video](https://youtu.be/fp_-G4ILlBw?si=DbyIaTvmBqy9HzcF)
-
 Binary Search is an efficient divide-and-conquer algorithm used to locate a specific item in a sorted collection. By repeatedly halving the search range, it finds targets significantly faster than a linear scan.
 
 ------------------------------
