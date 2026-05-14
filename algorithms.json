@@ -16,6 +16,7 @@
   {
     "id": "bubble-sort",
     "name": "Bubble Sort",
+    "videoId":"K_tzuirFXrk",
     "hint": "Simple comparison-based sorting algorithm",
     "time": "O(n²)",
     "space": "O(1)",
@@ -29,6 +30,7 @@
   {
     "id": "quick-sort",
     "name": "Quick Sort",
+    "videoId":"8xU4JaeGmNE",
     "hint": "Fast divide-and-conquer sorting with pivot",
     "time": "O(n log n)",
     "space": "O(log n)",
