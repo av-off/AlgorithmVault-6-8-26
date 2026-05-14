@@ -1082,5 +1082,27 @@
     "files": {
       "python": "algorithms/genetic/genetic.py"
     }
+  },
+  {
+    "id": "shell-sort",
+    "name": "Shell Sort",
+    "hint": "Generalized insertion sort with gap sequences",
+    "time": "O(n log² n)",
+    "space": "O(1)",
+    "tags": ["sort"],
+    "files": {
+      "python": "algorithms/shell-sort/shell.py"
+    }
+  },
+  {
+    "id": "interpolation-search",
+    "name": "Interpolation Search",
+    "hint": "Improved binary search for uniform distributions",
+    "time": "O(log log n)",
+    "space": "O(1)",
+    "tags": ["search"],
+    "files": {
+      "python": "algorithms/interpolation-search/interp.py"
+    }
   }
 ]
