@@ -248,6 +248,7 @@ function renderHome(list, all=false) {
           <div class="flex flex-wrap gap-1.5">
             ${(a.tags||[]).slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}
             ${Object.keys(a.files||{}).map(l=>`<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.65rem;font-family:'DM Mono',monospace;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:#a5a0ff;">${l}</span>`).join('')}
+            ${getDifficultyBadge(a.difficulty)}
           </div>
         </div>`).join('')}
       </div>
@@ -334,7 +335,7 @@ async function showDetail(id) {
       </button>
       <div class="mb-8">
         <span class="section-label mb-2 inline-block">Algorithm</span>
-        <h1 class="font-display text-3xl sm:text-4xl font-800">${algo.name}</h1>
+        <h1 class="font-display text-3xl sm:text-4xl font-800">${algo.name} ${getDifficultyBadge(algo.difficulty)}</h1>
         <p class="mt-2 text-base" style="color:var(--txt-muted)">${algo.hint}</p>
       </div>
       <div class="flex items-center gap-2 mt-4 mb-8">
@@ -1035,4 +1036,23 @@ async function trackViewed(algoId) {
   viewed = viewed.slice(0, 50);
 
   localStorage.setItem('av_viewed', JSON.stringify(viewed));
+}
+
+
+function getDifficultyBadge(diff) {
+  const d = (diff || "").toLowerCase();
+
+  if (d === "easy") {
+    return `<span class="badge" style="color:#00e676;border-color:rgba(0,230,118,0.3);background:rgba(0,230,118,0.08)">Easy</span>`;
+  }
+
+  if (d === "medium") {
+    return `<span class="badge" style="color:#ff9800;border-color:rgba(255,152,0,0.3);background:rgba(255,152,0,0.08)">Medium</span>`;
+  }
+
+  if (d === "hard") {
+    return `<span class="badge" style="color:#ff5252;border-color:rgba(255,82,82,0.3);background:rgba(255,82,82,0.08)">Hard</span>`;
+  }
+
+  return `<span class="badge">N/A</span>`;
 }
