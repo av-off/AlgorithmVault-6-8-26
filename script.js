@@ -120,6 +120,12 @@ function setupSearch() {
   inp.addEventListener('input', () => renderSearchResults(inp.value.trim()));
   document.getElementById('filter-lang').addEventListener('change', () => renderSearchResults(document.getElementById('search-input').value.trim()));
   document.getElementById('filter-tag').addEventListener('change',  () => renderSearchResults(document.getElementById('search-input').value.trim()));
+  document.getElementById('filter-diff')
+  .addEventListener('change', () =>
+    renderSearchResults(
+      document.getElementById('search-input').value.trim()
+    )
+  );
 }
 
 function openSearch() {
@@ -141,13 +147,15 @@ function renderSearchResults(query) {
   const box = document.getElementById('search-results');
   const lang = document.getElementById('filter-lang')?.value;
   const tag  = document.getElementById('filter-tag')?.value;
+  const diff = document.getElementById('filter-diff')?.value;
   const lowerQuery = query.toLowerCase();
 
   const filtered = algorithms.filter(a => {
     const matchQuery = !query || a.name.toLowerCase().includes(lowerQuery) || (a.tags||[]).some(t => t.toLowerCase().includes(lowerQuery));
     const matchLang  = !lang || (a.files && Object.keys(a.files).includes(lang)) || (a.code && Object.keys(a.code).includes(lang));
     const matchTag   = !tag  || (a.tags||[]).includes(tag);
-    return matchQuery && matchLang && matchTag;
+    const matchDiff  = !diff  || a.difficulty === diff;
+    return matchQuery && matchLang && matchTag && matchDiff;
   });
 
   if (!filtered.length) {
@@ -161,7 +169,7 @@ function renderSearchResults(query) {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium">${a.name}</p>
+        <p class="text-sm font-medium">${a.name} ${getDifficultyBadge(a.difficulty)}</p>
         <p class="text-xs" style="color:var(--txt-muted)">${a.hint}</p>
       </div>
       <span class="font-mono text-xs">${a.time}</span>
