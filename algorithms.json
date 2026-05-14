@@ -2,6 +2,7 @@
   {
     "id": "binary-search",
     "name": "Binary Search",
+    "videoId":"fp_-G4ILlBw",
     "hint": "Efficient O(log n) searching in sorted arrays",
     "time": "O(log n)",
     "space": "O(1)",
