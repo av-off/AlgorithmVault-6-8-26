@@ -47,7 +47,9 @@
     "space": "O(n)",
     "tags": ["sort", "divide-conquer"],
     "files": {
-      "python": "algorithms/merge-sort/merge.py"
+      "python": "algorithms/merge-sort/merge.py",
+      "cpp": "algorithms/merge-sort/merge.cpp",
+      "java": "algorithms/merge-sort/merge.java"
     }
   },
   {
