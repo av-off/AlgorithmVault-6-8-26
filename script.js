@@ -169,7 +169,7 @@ function renderSearchResults(query) {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium">${a.name} ${getDifficultyBadge(a.difficulty)}</p>
+        <p class="text-sm font-medium">${a.name} ${getDifficultyBadge(a.difficulty)} <span class="font-mono text-xs" style="color:var(--txt-muted)"><br> ${getUploadStatus(a)}</span></p>
         <p class="text-xs" style="color:var(--txt-muted)">${a.hint}</p>
       </div>
       <span class="font-mono text-xs">${a.time}</span>
@@ -258,6 +258,7 @@ function renderHome(list, all=false) {
             ${Object.keys(a.files||{}).map(l=>`<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.65rem;font-family:'DM Mono',monospace;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:#a5a0ff;">${l}</span>`).join('')}
             ${getDifficultyBadge(a.difficulty)}
           </div>
+          <span class="font-mono text-xs" style="color:var(--txt-muted)"> ${getUploadStatus(a)}</span>
         </div>`).join('')}
       </div>
       ${!all && algorithms.length > PREVIEW_COUNT ? `
@@ -1063,4 +1064,21 @@ function getDifficultyBadge(diff) {
   }
 
   return `<span class="badge">N/A</span>`;
+}
+
+function getUploadStatus(algo) {
+  const hasVideo = algo.videoId && algo.videoId.trim() !== "";
+
+  const files = algo.files || {};
+  const hasAllFiles = files.python && files.cpp && files.java;
+
+  if (hasVideo && hasAllFiles) {
+    return `🟢 UPLOADED`;
+  }
+
+  if (!hasVideo && hasAllFiles) {
+    return `🟠 IN PROGRESS`;
+  }
+
+  return `⚫ NOT UPLOADED`;
 }
