@@ -326,7 +326,7 @@ async function showDetail(id) {
     await Promise.all(langs.map(async lang => {
       try {
         const res = await fetch(algo.files[lang]);
-        codeStore[lang] = res.ok ? await res.text() : 'Coming soon';
+        codeStore[lang] = res.ok ? await res.text() : '😅 Developer is currently in exams. New algorithms will be uploaded after 30 August 2026';
       } catch(_) { codeStore[lang] = '# Could not load file'; }
     }));
   }
