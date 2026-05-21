@@ -67,7 +67,8 @@
     "space": "O(1)",
     "tags": ["search"],
     "files": {
-      "python": "algorithms/linear-search/linear.py"
+      "python": "algorithms/linear-search/linear.py",
+       "cpp": "algorithms/linear-search/linear.cpp"
     }
   },
   {
