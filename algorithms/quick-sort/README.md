@@ -1,54 +1,81 @@
 ## Quick Sort
 
-Quick Sort is a highly efficient divide-and-conquer sorting algorithm that organizes elements by selecting a pivot and partitioning the array around it. It is widely used because of its strong average-case performance and in-place sorting capability.
+Quick Sort is a highly efficient divide-and-conquer sorting algorithm. It works by selecting a “pivot” element, partitioning the array into elements smaller and larger than the pivot, and then recursively sorting the sub-arrays. It is widely used in practice due to its average-case speed and in-place nature.
 
 ---
 
 ## 🔦 Overview
 
-* Definition: A sorting algorithm that partitions an array into smaller subarrays around a pivot element.
-* Analogy: Picking a person in a queue and moving everyone shorter to the left and taller to the right.
-* Core Goal: To sort data efficiently by recursively dividing the problem into smaller parts.
+* **Definition**: A sorting algorithm that partitions an array around a pivot and recursively sorts the partitions.
+* **Analogy**: Like organizing books by picking one book (pivot), placing smaller ones on the left and bigger ones on the right, then repeating the process.
+* **Core Goal**: To efficiently sort by breaking the problem into smaller subproblems.
 
 ---
 
 ## ⚙️ How it Works
 
-1. Choose Pivot: Select an element from the array as the pivot.
-2. Partition:
+1. **Choose Pivot**: Select an element from the array (commonly first, last, or middle).
+2. **Partition**: Rearrange elements so that:
 
-   * Place all smaller elements to the left of the pivot.
-   * Place all larger elements to the right of the pivot.
-3. Recursive Sorting:
-
-   * Apply Quick Sort to the left subarray.
-   * Apply Quick Sort to the right subarray.
-4. Repeat: Continue until subarrays contain one or zero elements.
+   * Elements smaller than pivot go left
+   * Elements greater than pivot go right
+3. **Place Pivot**: Pivot is now in its correct sorted position.
+4. **Recurse**: Apply the same process to left and right sub-arrays.
+5. **Stop**: When sub-array size becomes 0 or 1.
 
 ---
 
 ## 🎯 When to Use
 
-* Large Datasets: Performs extremely well for large arrays in average cases.
-* In-Memory Sorting: Ideal when the entire dataset fits into memory.
-* Fast General Sorting: Commonly used in standard library implementations.
-* Random Access Structures: Works best with arrays or vectors.
+* **Large datasets**: Very efficient in practice for big inputs.
+* **General-purpose sorting**: One of the most commonly used sorting algorithms.
+* **In-place sorting needed**: Uses minimal extra memory.
+* **Performance-critical systems**: Often faster than other O(n log n) sorts in real-world use.
 
 ---
 
 ## 🚀 Application
 
-* System Libraries: Many language libraries use optimized Quick Sort variants internally.
-* Competitive Programming: Popular because of its speed and simplicity.
-* Database Systems: Used in internal sorting operations.
-* Data Processing Pipelines: Efficient for sorting large collections quickly.
+* **Standard libraries**: Used (or variants used) in many built-in sort functions.
+* **Databases**: Helps in internal sorting operations.
+* **System-level programming**: Used where fast average-case performance is required.
+* **Competitive programming**: Common choice for custom sorting logic.
 
 ---
 
 ## ⚠️ Common Mistakes
 
-* Bad Pivot Choice: Always choosing the first or last element can degrade performance to O(n²).
-* Stack Overflow: Deep recursion can occur for highly unbalanced partitions.
-* Forgetting Base Case: Missing recursion stopping conditions causes infinite recursion.
-* Incorrect Partition Logic: Mishandling swaps can break sorting order.
+* **Bad pivot choice**: Always choosing first/last element can degrade performance to O(n²).
+* **Incorrect partitioning**: Wrong swaps can break sorting logic.
+* **Not handling recursion base case**: Forgetting stopping condition leads to infinite recursion.
+* **Stack overflow risk**: Deep recursion on already sorted data.
 
+---
+
+## 👾 Pseudocode
+
+```text
+QuickSort(arr, low, high)
+
+    if low < high then
+
+        pivotIndex ← Partition(arr, low, high)
+
+        QuickSort(arr, low, pivotIndex - 1)
+        QuickSort(arr, pivotIndex + 1, high)
+
+
+Partition(arr, low, high)
+
+    pivot ← arr[high]
+    i ← low - 1
+
+    for j ← low to high - 1 do
+
+        if arr[j] ≤ pivot then
+            i ← i + 1
+            swap(arr[i], arr[j])
+
+    swap(arr[i + 1], arr[high])
+    return i + 1
+```
