@@ -1,207 +1,517 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://algorithm-vault.vercel.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://algorithm-vault.vercel.app/learn-algorithms/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/Progress/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://algorithm-vault.vercel.app/?algo=binary-search</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=bubble-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=quick-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=merge-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=linear-search</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=insertion-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=selection-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=depth-first-search</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=dfs</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=breadth-first-search</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=bfs</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=dijkstra%27s-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=dijkstra</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=heap-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=counting-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=radix-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=bucket-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=topological-sort</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=bellman-ford</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=floyd-warshall</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=kruskal%27s-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=kruskal</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=prim%27s-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=prim</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=union-find</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=0/1-knapsack</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=knapsack</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=longest-common-subsequence</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=longest-increasing-subsequence</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=edit-distance</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=kmp-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=kmp</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=rabin-karp</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=z-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=sliding-window</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=two-pointers</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=prefix-sum</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=segment-tree</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=fenwick-tree</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=trie</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=binary-tree-traversal</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=lowest-common-ancestor</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=binary-search-tree</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=backtracking</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=n-queens</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://algorithm-vault.vercel.app/?algo=sieve-of-eratosthenes</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://algorithm-vault.vercel.app/?algo=euclidean-algorithm</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://algorithm-vault.vercel.app/?algo=euclidean-gcd</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=avl-tree</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=red-black-tree</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=a-star</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=coin-change</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=matrix-chain-multiplication</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=rod-cutting</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=word-break</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=palindrome-partitioning</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=max-subarray</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=stock-buy-sell</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=activity-selection</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=huffman-coding</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=fractional-knapsack</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=job-sequencing</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=tarjan-scc</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=kosaraju-scc</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=articulation-points</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=bridges</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=ford-fulkerson</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=edmonds-karp</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=bipartite-matching</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=cycle-detection</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=floyds-tortoise-hare</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=manacher</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=aho-corasick</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=suffix-array</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=suffix-tree</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=sparse-table</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=disjoint-set-union</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=mo-algorithm</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=convex-hull</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=line-sweep</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=fast-exponentiation</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=extended-euclidean</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=modular-inverse</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=chinese-remainder-theorem</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=miller-rabin</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=matrix-exponentiation</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=fast-fourier-transform</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=number-theory-sieve</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=sqrt-decomposition</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=heavy-light-decomposition</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=centroid-decomposition</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=euler-tour</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=binary-lifting</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=treap</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=skip-list</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=monotonic-stack</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=monotonic-queue</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=meet-in-the-middle</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=randomized-quickselect</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=reservoir-sampling</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=bloom-filter</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=lru-cache</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=substring-search-bm</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=hungarian-algorithm</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=simulated-annealing</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=genetic-algorithm</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=shell-sort</loc>
+    <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algorithm-vault.vercel.app/?algo=interpolation-search</loc>
+    <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
