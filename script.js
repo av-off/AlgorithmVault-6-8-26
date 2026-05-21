@@ -1071,7 +1071,7 @@ function getUploadStatus(algo) {
   const hasVideo = algo.videoId && algo.videoId.trim() !== "";
 
   const files = algo.files || {};
-  const hasAllFiles = files.python && files.cpp && files.java;
+  const hasAllFiles = files.python && (files.cpp || files.java);
 
   if (hasVideo && hasAllFiles) {
     return `🟢 UPLOADED`;
