@@ -257,6 +257,7 @@ function renderHome(list, all=false) {
             ${(a.tags||[]).slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}
             ${Object.keys(a.files||{}).map(l=>`<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.65rem;font-family:'DM Mono',monospace;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:#a5a0ff;">${l}</span>`).join('')}
             ${getDifficultyBadge(a.difficulty)}
+            ${isVideoUploaded(a) ? `<span class="badge"style="color: rgba(226, 232, 240, 0.9);border-color: rgba(148, 163, 184, 0.25);background: rgba(148, 163, 184, 0.08);backdrop-filter: blur(8px);letter-spacing: 0.02em;">▷ Video</span>` : ''}
           </div>
           <span class="font-mono text-xs" style="color:var(--txt-muted)"> ${getUploadStatus(a)}</span>
         </div>`).join('')}
@@ -1081,4 +1082,8 @@ function getUploadStatus(algo) {
   }
 
   return `⚫ NOT UPLOADED`;
+}
+
+function isVideoUploaded(algo) {
+  return algo.videoId && algo.videoId.trim() !== "";
 }
