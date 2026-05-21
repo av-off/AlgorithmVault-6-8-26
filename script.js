@@ -512,41 +512,55 @@ function askLocalStoragePermission(callback) {
   position:fixed;
   bottom:28px;
   left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(180deg,#0f172a,#111827);
-  border:1px solid rgba(0,229,195,0.18);
+  transform:translateX(-50%) translateY(20px) scale(0.98);
+  opacity:0;
+
+  background:var(--surface);
+  border:1px solid var(--border);
+
   padding:22px;
   border-radius:22px;
+
   display:flex;
   align-items:flex-start;
   gap:18px;
+
   z-index:99999;
+
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.55),
+    0 25px 80px rgba(0,0,0,0.65),
     0 0 0 1px rgba(255,255,255,0.03) inset;
+
   max-width:560px;
   width:calc(100% - 32px);
-  animation:fadeIn .25s ease;
-  backdrop-filter:blur(14px);
+
+  backdrop-filter:blur(16px);
+
+  animation: popupEnter 0.38s cubic-bezier(.2,.9,.2,1) forwards;
 ">
 
-  <!-- permission icon -->
+  <!-- icon -->
   <div style="
-    width:52px;
-    height:52px;
-    min-width:52px;
-    border-radius:16px;
-    background:rgba(0,229,195,0.08);
-    border:1px solid rgba(0,229,195,0.15);
+    width:54px;
+    height:54px;
+    min-width:54px;
+
+    border-radius:18px;
+
+    background:var(--glass);
+    border:1px solid var(--border);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    box-shadow: 0 0 0 1px rgba(0,229,195,0.04);
   ">
-    <svg width="24" height="24"
+    <svg width="22" height="22"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#00e5c3"
-      stroke-width="2.2"
+      stroke="var(--accent)"
+      stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round">
 
@@ -562,17 +576,20 @@ function askLocalStoragePermission(callback) {
       display:flex;
       align-items:center;
       gap:8px;
-      margin-bottom:8px;
+      margin-bottom:10px;
     ">
       <span style="
         font-size:11px;
-        font-weight:700;
-        letter-spacing:.08em;
+        font-weight:600;
+        letter-spacing:.12em;
         text-transform:uppercase;
-        color:#00e5c3;
+
+        color:var(--accent);
+
         background:rgba(0,229,195,0.08);
-        border:1px solid rgba(0,229,195,0.15);
-        padding:4px 8px;
+        border:1px solid rgba(0,229,195,0.18);
+
+        padding:4px 10px;
         border-radius:999px;
       ">
         Permission Request
@@ -580,58 +597,88 @@ function askLocalStoragePermission(callback) {
     </div>
 
     <p style="
-      font-size:18px;
+      font-size:17px;
       font-weight:700;
       margin-bottom:8px;
-      color:white;
-      line-height:1.3;
+      color:var(--txt);
+      line-height:1.35;
     ">
       Allow local storage access?
     </p>
 
     <p style="
       font-size:14px;
-      color:#94a3b8;
+      color:var(--txt-muted);
       line-height:1.7;
       margin-bottom:18px;
     ">
-      AlgorithmVault wants permission to store bookmarks and recently viewed algorithms locally on this device.
-      Your data stays inside your browser and is never uploaded anywhere.
+      AlgorithmVault stores your progress and bookmarks locally in your browser.
+      No servers, no tracking — fully offline and private.
     </p>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap">
 
       <button id="local-accept-btn" style="
-        background:#00e5c3;
-        color:black;
+        background:var(--accent);
+        color:#080c12;
+
         border:none;
+
         padding:12px 18px;
-        border-radius:12px;
+        border-radius:14px;
+
         font-size:13px;
         font-weight:700;
+
         cursor:pointer;
-        transition:.2s;
-      ">
+
+        transition:all .2s ease;
+        box-shadow: 0 10px 30px rgba(0,229,195,0.15);
+      "
+      onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 40px rgba(0,229,195,0.22)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,229,195,0.15)'"
+      >
         Allow Access
       </button>
 
       <button onclick="this.closest('div').parentNode.parentNode.remove()" style="
-        background:rgba(255,255,255,0.04);
-        color:#cbd5e1;
-        border:1px solid rgba(255,255,255,0.08);
+        background:transparent;
+        color:var(--txt-muted);
+
+        border:1px solid var(--border);
+
         padding:12px 18px;
-        border-radius:12px;
+        border-radius:14px;
+
         font-size:13px;
         font-weight:600;
+
         cursor:pointer;
-        transition:.2s;
-      ">
+
+        transition:all .2s ease;
+      "
+      onmouseover="this.style.color='var(--txt)';this.style.borderColor='rgba(255,255,255,0.2)'"
+      onmouseout="this.style.color='var(--txt-muted)';this.style.borderColor='var(--border)'"
+      >
         Deny
       </button>
 
     </div>
   </div>
 </div>
+
+<style>
+@keyframes popupEnter {
+  0% {
+    opacity:0;
+    transform:translateX(-50%) translateY(25px) scale(0.96);
+  }
+  100% {
+    opacity:1;
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+}
+</style>
   `;
 
   document.body.appendChild(toast);
