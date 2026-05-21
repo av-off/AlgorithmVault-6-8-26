@@ -169,7 +169,7 @@ function renderSearchResults(query) {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium">${a.name} ${isVideoUploaded(a) ? `<span class="badge"style="color: rgba(226, 232, 240, 0.9);border-color: rgba(148, 163, 184, 0.25);background: rgba(148, 163, 184, 0.08);backdrop-filter: blur(8px);letter-spacing: 0.02em;">▷</span>` : ''}${getDifficultyBadge(a.difficulty)} <span class="font-mono text-xs" style="color:var(--txt-muted)"><br> ${getUploadStatus(a)}</span></p>
+        <p class="text-sm font-medium">${a.name} ${isVideoUploaded(a) ? `<span class="badge"style="color: rgba(226, 232, 240, 0.9);border-color: rgba(148, 163, 184, 0.25);background: rgba(148, 163, 184, 0.08);backdrop-filter: blur(8px);letter-spacing: 0.02em;"> ▷ </span>` : ''}${getDifficultyBadge(a.difficulty)} <span class="font-mono text-xs" style="color:var(--txt-muted)"><br> ${getUploadStatus(a)}</span></p>
         <p class="text-xs" style="color:var(--txt-muted)">${a.hint}</p>
       </div>
       <span class="font-mono text-xs">${a.time}</span>
