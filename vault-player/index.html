@@ -469,11 +469,33 @@ footer {
 }
 
 .page { animation:fadeIn .3s ease both; }
-
 @media(max-width:600px){
-  .orb-1,.orb-2 { width:220px; height:220px; }
-  .nav-search-btn { max-width:unset; }
-  .complexity-box { flex-wrap:wrap; }
+
+  .orb-1,
+  .orb-2 {
+    width:220px;
+    height:220px;
+  }
+
+  .nav-search-btn {
+    max-width:unset;
+  }
+
+  .complexity-box {
+    flex-wrap:wrap;
+  }
+
+  .grid {
+    grid-template-columns:1fr;
+    padding:8px 0;
+    gap:10px;
+  }
+
+  .algo-card {
+    border-radius:0;
+    border-left:none;
+    border-right:none;
+  }
 }
 /* ── MOBILE NAV ICON ONLY ── */
 @media (max-width: 600px) {
