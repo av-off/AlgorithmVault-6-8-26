@@ -991,26 +991,43 @@ function goBack() {
 /* ─── SHARE ─── */
 function shareVideo() {
   if (!current) return;
-  const url = new URL(window.location.href);
-  url.searchParams.set('v', current.videoId);
-  const shareUrl = url.toString();
+
+  const shareUrl =
+    `${window.location.origin}${window.location.pathname}?v=${current.videoId}`;
+
   const shareData = {
     title: current.name,
     text: current.hint || "Algorithm Vault",
     url: shareUrl
   };
+
   const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
   if (isMobile && navigator.share) {
-    navigator.share(shareData).catch(() => fallbackCopy(shareUrl));
+    navigator.share(shareData)
+      .catch(() => fallbackCopy(shareUrl));
     return;
   }
+
   fallbackCopy(shareUrl);
 }
-
 function fallbackCopy(url) {
   navigator.clipboard.writeText(url)
     .then(()=>toast('🔗 Link copied!'))
     .catch(()=>prompt("Copy this link:", url));
+}
+
+function handleSharedVideo() {
+  const params = new URLSearchParams(window.location.search);
+  const videoId = params.get('v');
+
+  if (!videoId) return;
+
+  const item = data.find(d => d.videoId === videoId);
+
+  if (item) {
+    openVideo(item);
+  }
 }
 
 /* ─── SEARCH OVERLAY ─── */
@@ -1092,7 +1109,9 @@ document.addEventListener('keydown', e => {
   }
 });
 
-loadData();
+loadData().then(() => {
+  handleSharedVideo();
+});
 </script>
 </body>
 </html>
