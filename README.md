@@ -15,11 +15,14 @@ Algorithm Vault is a structured collection of fundamental data structures and al
 
 [All Algorithms](algorithms/)
 
-| Algorithm | Explanation | C++ | Java | Python | All Files | Website |
-|----------|-------------|-----|------|--------|------------|----------|
-| Binary Search | [Readme](algorithms/binary-search/README.md) | [C++](algorithms/binary-search/binary.cpp) | [Java](algorithms/binary-search/binary.java) | [Python](algorithms/binary-search/binary.py) | [folder](algorithms/binary-search/) | [Web](https://algorithm-vault.vercel.app/?algo=binary-search) |
-| Bubble Sort | [Readme](algorithms/bubble-sort/README.md) | [C++](algorithms/bubble-sort/bubble.cpp) | [Java](algorithms/bubble-sort/bubble.java) | [Python](algorithms/bubble-sort/bubble.py) | [folder](algorithms/bubble-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=bubble-sort) |
-| Quick Sort | [Readme](algorithms/quick-sort/README.md) | [C++](algorithms/quick-sort/quick.cpp) | [Java](algorithms/quick-sort/quick.java) | [Python](algorithms/quick-sort/quick.py) | [folder](algorithms/quick-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=quick-sort) |
+| Algorithm | Explanation | C++ | Java | Python | All Files | Website | video |
+|----------|-------------|-----|------|--------|------------|----------|------|
+| Binary Search | [Readme](algorithms/binary-search/README.md) | [C++](algorithms/binary-search/binary.cpp) | [Java](algorithms/binary-search/binary.java) | [Python](algorithms/binary-search/binary.py) | [folder](algorithms/binary-search/) | [Web](https://algorithm-vault.vercel.app/?algo=binary-search) | [youtube](https://youtu.be/fp_-G4ILlBw) or [Web](https://algorithm-vault.vercel.app/vault-player/?v=fp_-G4ILlBw) |
+| Bubble Sort | [Readme](algorithms/bubble-sort/README.md) | [C++](algorithms/bubble-sort/bubble.cpp) | [Java](algorithms/bubble-sort/bubble.java) | [Python](algorithms/bubble-sort/bubble.py) | [folder](algorithms/bubble-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=bubble-sort) | [youtube](https://youtu.be/K_tzuirFXrk) or [Web](https://algorithm-vault.vercel.app/vault-player/?v=K_tzuirFXrk) |
+| Quick Sort | [Readme](algorithms/quick-sort/README.md) | [C++](algorithms/quick-sort/quick.cpp) | [Java](algorithms/quick-sort/quick.java) | [Python](algorithms/quick-sort/quick.py) | [folder](algorithms/quick-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=quick-sort) | [youtube](https://youtu.be/8xU4JaeGmNE) or [Web](https://algorithm-vault.vercel.app/vault-player/?v=8xU4JaeGmNE) |
+| Merge Sort | [Readme](algorithms/merge-sort/README.md) | [C++](algorithms/merge-sort/merge.cpp) | [Java](algorithms/merge-sort/merge.java) | [Python](algorithms/merge-sort/merge.py) | [folder](algorithms/merge-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=merge-sort) |
+| Linear Search | [Readme](algorithms/linear-search/README.md) | [C++](algorithms/linear-search/linear.cpp) | [Java](algorithms/linear-search/linear.java) | [Python](algorithms/linear-search/linear.py) | [folder](algorithms/linear-search/) | [Web](https://algorithm-vault.vercel.app/?algo=linear-search) |
+| Insertion Sort | [Readme](algorithms/insertion-sort/README.md) | [C++](algorithms/insertion-sort/insertion.cpp) | [Java](algorithms/insertion-sort/insertion.java) | [Python](algorithms/insertion-sort/insertion.py) | [folder](algorithms/insertion-sort/) | [Web](https://algorithm-vault.vercel.app/?algo=insertion-sort) |
 |Coming soon.......|
 ## Overview
 
