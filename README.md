@@ -7,6 +7,10 @@
 Algorithm Vault is a structured collection of fundamental data structures and algorithms with clear explanations and multi-language implementations. It is designed to help students and developers build a strong foundation in algorithms and problem-solving.
 
 🔗Website Link: [here](https://algorithm-vault.vercel.app/)
+
+🔗Download APK: [Visit Realease](https://github.com/sakib-12345/AlgorithmVault/releases/tag/v1.0.0) or [Direct link](https://github.com/sakib-12345/AlgorithmVault/releases/download/v1.0.0/algorithm-vault-v1.0.0.apk)
+
+
 <p align="center">
   <img src="Screenshoots/Screenshot (29).png" width="600"/>
 </p>
