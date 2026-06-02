@@ -883,18 +883,35 @@ async function uploadImage(file) {
 /* ── POSTS ── */
 async function fetchPosts() {
   showLoading();
+
   try {
-    let query = db.from('posts').select('*');
+    let query = db
+      .from('posts')
+      .select(`
+        *,
+        comments(count)
+      `);
+
     if (currentSort === 'popular') {
       query = query.order('reads', { ascending: false });
     } else {
-      query = query.order('pinned', { ascending: false }).order('created_at', { ascending: false });
+      query = query
+        .order('pinned', { ascending: false })
+        .order('created_at', { ascending: false });
     }
+
     const { data, error } = await query;
+
     if (error) throw error;
-    allPosts = data || [];
+
+    allPosts = (data || []).map(post => ({
+      ...post,
+      comments_count: post.comments?.[0]?.count || 0
+    }));
+
     applyFiltersAndRender();
     updateStats();
+
   } catch (err) {
     console.error(err);
     showToast('Failed to load posts', 'error');
@@ -955,10 +972,16 @@ function renderCard(post, mini = false) {
       <div class="card-footer">
         <div class="card-author">${avatarHtml} ${esc(author)}</div>
         <div class="card-meta">
-          <span>👁 ${post.reads || 0}</span>
-          <span class="dot">·</span>
-          <span>${timeAgo(post.created_at)}</span>
-        </div>
+  <span>👁 ${post.reads || 0}</span>
+
+  <span class="dot">·</span>
+
+  <span>💬 ${post.comments_count || 0}</span>
+
+  <span class="dot">·</span>
+
+  <span>${timeAgo(post.created_at)}</span>
+</div>
       </div>
      
     </div>`;
