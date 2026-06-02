@@ -629,7 +629,7 @@
 <div id="app">
 
   <nav>
-    <a href="#" class="nav-logo">⬡ Algorithm<span>Vault</span></a>
+    <a href="#" class="nav-logo">Vault<span>Blogs</span></a>
     <div class="nav-links">
       <div id="auth-area"></div>
       <button class="btn btn-primary" id="write-btn" style="display:none" onclick="openWriteModal()">
@@ -658,8 +658,8 @@
         <div class="stat-label">Total Reads</div>
       </div>
       <div class="stat">
-        <div class="stat-num">O(1)</div>
-        <div class="stat-label">Lookup Time (aspirational)</div>
+        <div class="stat-num" id="stat-users">—</div>
+        <div class="stat-label">Users</div>
       </div>
     </div>
   </section>
@@ -927,7 +927,20 @@ async function uploadImage(file) {
 
   return publicUrl.publicUrl;
 }
+async function updateUserCount() {
+  const { count, error } = await db
+  
+    .from('profiles')
+    .select('*', { count: 'exact', head: true });
 
+  if (error) {
+    console.error(error);
+    return;
+  }
+  const fakeBoost = 33; // your fake users
+  
+  document.getElementById('stat-users').textContent = count + fakeBoost;
+}
 /* ── POSTS ── */
 async function fetchPosts() {
   showLoading();
@@ -1536,6 +1549,7 @@ function timeAgo(date) {
 }
 
 initAuth();
+updateUserCount();
 </script>
 </body>
 </html>
