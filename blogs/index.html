@@ -608,6 +608,21 @@
   border-color:rgba(0,229,195,0.35);
   color:var(--accent);
 }
+.card-reactions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--txt-muted);
+  margin-top: 6px;
+}
+
+.card-reactions span {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
   </style>
 </head>
 <body>
@@ -938,10 +953,11 @@ async function fetchPosts() {
     if (error) throw error;
 
     allPosts = (data || []).map(post => ({
-      ...post,
-      comments_count: post.comments?.[0]?.count || 0
-    }));
-
+  ...post,
+  comments_count: post.comments?.[0]?.count || 0,
+  reactions: reactionCache[post.id] || {}
+}));
+await fetchAllReactions();
     applyFiltersAndRender();
     updateStats();
 
@@ -1002,18 +1018,25 @@ function renderCard(post, mini = false) {
       </div>
       <div class="card-title">${esc(post.title)}</div>
       <div class="card-excerpt">${esc(excerpt(post.body, 160))}</div>
+      
       <div class="card-footer">
         <div class="card-author">${avatarHtml} ${esc(author)}</div>
+
         <div class="card-meta">
-  <span>👁 ${post.reads || 0}</span>
-
-  <span class="dot">·</span>
-
+ <span>
+  ${REACTIONS.map(r => `
+    <span>${r} ${post.reactions?.[r] || 0}</span>
+  `).join('')}</span>
+  
+  <span>
+    <span>👁 ${post.reads || 0}</span>
+    <span class="dot">·</span>
   <span>💬 ${post.comments_count || 0}</span>
 
   <span class="dot">·</span>
 
   <span>${timeAgo(post.created_at)}</span>
+  </span>
 </div>
       </div>
      
@@ -1200,6 +1223,7 @@ async function loadComments(postId) {
     `;
   }).join('');
 }
+let reactionCache = {}; 
 const REACTIONS = ['👍','👎','💙','🔥'];
 async function loadReactions(postId){
 
@@ -1279,7 +1303,20 @@ async function toggleReaction(postId, reaction) {
 
   loadReactions(postId);
 }
+async function fetchAllReactions() {
+  const { data, error } = await db.from('reactions').select('*');
+  if (error) return;
 
+  reactionCache = {};
+
+  data.forEach(r => {
+    if (!reactionCache[r.post_id]) {
+      reactionCache[r.post_id] = {};
+    }
+    reactionCache[r.post_id][r.reaction] =
+      (reactionCache[r.post_id][r.reaction] || 0) + 1;
+  });
+}
 async function submitComment(postId) {
   if (!currentUser) {
     showToast('Login required', 'error');
