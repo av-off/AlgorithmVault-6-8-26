@@ -513,6 +513,68 @@
       .search-wrap input { width: 100%; }
       .orb-1, .orb-2 { width: 200px; height: 200px; }
     }
+    .comments-section{
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid var(--border);
+}
+
+.comments-title{
+  font-family:'Syne',sans-serif;
+  font-size:1.1rem;
+  margin-bottom:18px;
+}
+
+.comment-form{
+  display:flex;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.comment-form textarea{
+  min-height:70px;
+}
+
+.comment{
+  display:flex;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.comment-body{
+  flex:1;
+}
+
+.comment-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:6px;
+}
+
+.comment-name{
+  font-size:0.9rem;
+  font-weight:600;
+}
+
+.comment-time{
+  font-size:0.72rem;
+  color:var(--txt-muted);
+}
+
+.comment-text{
+  color:#cbd5e1;
+  line-height:1.7;
+  font-size:0.9rem;
+}
+
+.comment-delete{
+  margin-left:auto;
+  cursor:pointer;
+  color:#f87171;
+  font-size:0.75rem;
+}
   </style>
 </head>
 <body>
@@ -902,6 +964,7 @@ function renderCard(post, mini = false) {
     </div>`;
 }
 
+
 async function openPost(id) {
   const post = allPosts.find(p => p.id === id);
   if (!post) return;
@@ -930,11 +993,15 @@ async function openPost(id) {
   const adminBtns = isAdmin ? `
     <div class="admin-actions" style="margin-top:20px">
       <button class="btn btn-ghost" onclick="openEditModal('${post.id}')">✎ Edit</button>
+
       <button class="btn ${post.pinned ? 'btn-primary' : 'btn-ghost'}"
         onclick="togglePin('${post.id}', ${post.pinned})">
         ${post.pinned ? '📌 Unpin' : '📌 Pin'}
       </button>
-      <button class="btn btn-danger" onclick="deletePost('${post.id}')">✕ Delete</button>
+
+      <button class="btn btn-danger" onclick="deletePost('${post.id}')">
+        ✕ Delete
+      </button>
     </div>
   ` : '';
 
@@ -948,10 +1015,13 @@ async function openPost(id) {
 
     <div class="post-reader-meta">
       <div style="display:flex;align-items:center;gap:8px">
-        ${avatarHtml}<span>${esc(author)}</span>
+        ${avatarHtml}
+        <span>${esc(author)}</span>
       </div>
+
       <span class="dot">·</span>
       <span>${timeAgo(post.created_at)}</span>
+
       <span class="dot">·</span>
       <span>👁 ${post.reads} reads</span>
     </div>
@@ -961,12 +1031,180 @@ async function openPost(id) {
     <div class="md-content">${bodyHtml}</div>
 
     ${adminBtns}
+
+    <div class="comments-section">
+      <div class="comments-title">Comments</div>
+
+      ${
+        currentUser
+        ? `
+          <div class="comment-form">
+            <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+            <button class="btn btn-primary" onclick="submitComment('${post.id}')">
+              Post
+            </button>
+          </div>
+        `
+        : `
+          <p style="color:var(--txt-muted)">
+            Sign in to comment.
+          </p>
+        `
+      }
+
+      <div id="comments-list">
+        Loading comments...
+      </div>
+    </div>
   `;
 
   document.getElementById('post-reader-content').innerHTML = html;
 
   openModal('post-modal');
+
+  loadComments(post.id);
 }
+
+async function loadComments(postId) {
+  const box = document.getElementById('comments-list');
+
+  const { data, error } = await db
+    .from('comments')
+    .select('*')
+    .eq('post_id', postId)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    box.innerHTML = `<p style="color:#f87171">Failed to load comments</p>`;
+    return;
+  }
+
+  if (!data.length) {
+    box.innerHTML = `
+      <p style="color:var(--txt-muted)">
+        No comments yet.
+      </p>
+    `;
+    return;
+  }
+
+  box.innerHTML = data.map(comment => {
+    const avatar = comment.user_avatar
+      ? `<div class="author-avatar">
+          <img src="${esc(comment.user_avatar)}">
+        </div>`
+      : `
+        <div class="author-avatar">
+          ${(comment.user_name || 'U')[0].toUpperCase()}
+        </div>
+      `;
+
+    const canDelete =
+      currentUser &&
+      (
+        currentUser.id === comment.user_id ||
+        isAdmin
+      );
+
+    return `
+      <div class="comment">
+        ${avatar}
+
+        <div class="comment-body">
+          <div class="comment-top">
+            <div class="comment-name">
+              ${esc(comment.user_name || 'User')}
+            </div>
+
+            <div class="comment-time">
+              ${timeAgo(comment.created_at)}
+            </div>
+
+            ${
+              canDelete
+              ? `
+                <div
+                  class="comment-delete"
+                  onclick="deleteComment('${comment.id}','${postId}')"
+                >
+                  Delete
+                </div>
+              `
+              : ''
+            }
+          </div>
+
+          <div class="comment-text">
+            ${esc(comment.content)}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function submitComment(postId) {
+  if (!currentUser) {
+    showToast('Login required', 'error');
+    return;
+  }
+
+  const input = document.getElementById('comment-input');
+
+  const content = input.value.trim();
+
+  if (!content) return;
+
+  const meta = currentUser.user_metadata || {};
+
+  const { error } = await db
+    .from('comments')
+    .insert([{
+      post_id: postId,
+      user_id: currentUser.id,
+      user_name:
+        meta.full_name ||
+        meta.name ||
+        meta.user_name ||
+        currentUser.email.split('@')[0],
+
+      user_avatar:
+        meta.avatar_url ||
+        meta.picture ||
+        null,
+
+      content
+    }]);
+
+  if (error) {
+    showToast(error.message, 'error');
+    return;
+  }
+
+  input.value = '';
+
+  showToast('Comment added', 'success');
+
+  loadComments(postId);
+}
+
+async function deleteComment(commentId, postId) {
+  const { error } = await db
+    .from('comments')
+    .delete()
+    .eq('id', commentId);
+
+  if (error) {
+    showToast(error.message, 'error');
+    return;
+  }
+
+  showToast('Comment deleted', 'success');
+
+  loadComments(postId);
+}
+
+
 
 /* ── WRITE / EDIT ── */
 function openWriteModal() {
