@@ -575,6 +575,39 @@
   color:#f87171;
   font-size:0.75rem;
 }
+    .reactions-bar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+}
+
+.react-btn{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  color:var(--txt);
+  border-radius:999px;
+  padding:8px 14px;
+  cursor:pointer;
+  transition:var(--transition);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.85rem;
+}
+
+.react-btn:hover{
+  border-color:rgba(0,229,195,0.3);
+  transform:translateY(-2px);
+}
+
+.react-btn.active{
+  background:rgba(0,229,195,0.12);
+  border-color:rgba(0,229,195,0.35);
+  color:var(--accent);
+}
   </style>
 </head>
 <body>
@@ -1054,7 +1087,9 @@ async function openPost(id) {
     <div class="md-content">${bodyHtml}</div>
 
     ${adminBtns}
-
+    <div class="reactions-bar" id="reactions-bar">
+  Loading reactions...
+</div>
     <div class="comments-section">
       <div class="comments-title">Comments</div>
 
@@ -1084,7 +1119,7 @@ async function openPost(id) {
   document.getElementById('post-reader-content').innerHTML = html;
 
   openModal('post-modal');
-
+  loadReactions(post.id);
   loadComments(post.id);
 }
 
@@ -1164,6 +1199,85 @@ async function loadComments(postId) {
       </div>
     `;
   }).join('');
+}
+const REACTIONS = ['👍','👎','💙','🔥'];
+async function loadReactions(postId){
+
+  const box = document.getElementById('reactions-bar');
+
+  const { data, error } = await db
+    .from('reactions')
+    .select('*')
+    .eq('post_id', postId);
+
+  if(error){
+    box.innerHTML = 'Failed to load reactions';
+    return;
+  }
+
+  const grouped = {};
+
+  REACTIONS.forEach(r => {
+    grouped[r] = {
+      count: 0,
+      reacted: false
+    };
+  });
+
+  data.forEach(r => {
+
+    if(grouped[r.reaction]){
+      grouped[r.reaction].count++;
+
+      if(currentUser && r.user_id === currentUser.id){
+        grouped[r.reaction].reacted = true;
+      }
+    }
+
+  });
+
+  box.innerHTML = REACTIONS.map(r => `
+    <button
+      class="react-btn ${grouped[r].reacted ? 'active' : ''}"
+      onclick="toggleReaction('${postId}','${r}')"
+    >
+      <span>${r}</span>
+      <span>${grouped[r].count}</span>
+    </button>
+  `).join('');
+}
+async function toggleReaction(postId, reaction) {
+  if (!currentUser) {
+    showToast('Login required', 'error');
+    return;
+  }
+
+  const { data: existing } = await db
+    .from('reactions')
+    .select('id, reaction')
+    .eq('post_id', postId)
+    .eq('user_id', currentUser.id)
+    .maybeSingle();
+
+  // if same reaction → remove (toggle off)
+  if (existing && existing.reaction === reaction) {
+    await db
+      .from('reactions')
+      .delete()
+      .eq('id', existing.id);
+  } 
+  // otherwise replace reaction
+  else {
+    await db
+      .from('reactions')
+      .upsert({
+        post_id: postId,
+        user_id: currentUser.id,
+        reaction
+      }, { onConflict: 'post_id,user_id' });
+  }
+
+  loadReactions(postId);
 }
 
 async function submitComment(postId) {
