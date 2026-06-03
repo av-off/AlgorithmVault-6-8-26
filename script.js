@@ -234,6 +234,24 @@ function renderHome(list, all=false) {
           " onmouseover="this.style.boxShadow='0 0 15px rgba(0,229,195,0.3)'" onmouseout="this.style.boxShadow='none'">
             Learning Videos
           </a>
+           <a href="/Mobile/download/" style="
+            display:inline-flex;align-items:center;gap:6px;
+            padding:10px 16px;border-radius:10px;
+            border:1px solid rgba(0,229,195,0.3);color:#00e5c3;
+            background:rgba(0,229,195,0.08);font-size:13px;
+            font-family:'DM Mono', monospace;text-decoration:none;transition:0.2s;
+          " onmouseover="this.style.boxShadow='0 0 15px rgba(0,229,195,0.3)'" onmouseout="this.style.boxShadow='none'">
+            Mobile App
+          </a>
+           <a href="/blogs/" style="
+            display:inline-flex;align-items:center;gap:6px;
+            padding:10px 16px;border-radius:10px;
+            border:1px solid rgba(0,229,195,0.3);color:#00e5c3;
+            background:rgba(0,229,195,0.08);font-size:13px;
+            font-family:'DM Mono', monospace;text-decoration:none;transition:0.2s;
+          " onmouseover="this.style.boxShadow='0 0 15px rgba(0,229,195,0.3)'" onmouseout="this.style.boxShadow='none'">
+            News Feed
+          </a>
         </div>
         <div class="flex flex-wrap gap-6 justify-center mt-10">
           <div class="text-center"><p class="text-sm font-semibold">Fast</p><p class="text-xs" style="color:var(--txt-muted)">O(log n) to O(n^2)</p></div>
