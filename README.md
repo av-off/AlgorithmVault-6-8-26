@@ -8,7 +8,9 @@ Algorithm Vault is a structured collection of fundamental data structures and al
 
 🔗Website Link: [here](https://algorithm-vault.vercel.app/)
 
-🔗Download APK: [Visit Realease](https://github.com/sakib-12345/AlgorithmVault/releases/tag/v1.0.0) or [Direct link](https://github.com/sakib-12345/AlgorithmVault/releases/download/v1.0.0/algorithm-vault-v1.0.0.apk)
+🔗Download APK: 
+- App **v2.0.0** (Native): [Realease Note](https://github.com/sakib-12345/AlgorithmVault/releases/tag/v2.0.0) or [Direct link](https://github.com/sakib-12345/AlgorithmVault/releases/download/v1.0.0/algorithm-vault-v2.0.0.apk)
+- App **v1.0.0** (webview): [Realease Note](https://github.com/sakib-12345/AlgorithmVault/releases/tag/v1.0.0) or [Direct link](https://github.com/sakib-12345/AlgorithmVault/releases/download/v1.0.0/algorithm-vault-v1.0.0.apk)
 
 
 <p align="center">
